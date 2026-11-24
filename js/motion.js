@@ -92,7 +92,7 @@
 
   /* ---------- Medien-Karten: einblenden + 3D-Kippen beim Überfahren ---------- */
   gsap.from('.card', {
-    y: 40, opacity: 0, duration: 0.8, stagger: { each: 0.08, grid: 'auto', from: 'start' }, ease: 'power3.out',
+    y: 22, opacity: 0, duration: 0.8, stagger: { each: 0.08, grid: 'auto', from: 'start' }, ease: 'power3.out',
     scrollTrigger: { trigger: '.cards', start: 'top 82%' }
   });
   if (finePointer) {
