@@ -13,6 +13,8 @@
 <meta property="og:image" content="https://msozv520.github.io/images/portrait.jpg">
 <meta name="theme-color" content="#e3000f">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="js/lenis.css">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
 
 <!-- Für Google: wer ist diese Person? sameAs verbindet alle Profile zu einer Person. -->
 <script type="application/ld+json">
@@ -148,16 +150,49 @@ section[id] { scroll-margin-top: 80px; }
 .social a:hover { background: var(--flaeche); color: var(--rot); }
 .social svg { width: 18px; height: 18px; }
 
-/* Intro: Text links, Foto rechts */
-.intro { display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: start; padding: 56px 0 48px; }
-.intro h1 { margin: 0 0 6px; font-size: clamp(34px, 4.6vw, 50px); line-height: 1.05; letter-spacing: -.02em; }
-.intro .role { margin: 0 0 22px; color: var(--muted); font-size: 18px; }
-.intro .role b { color: var(--text); font-weight: 600; }
-.intro p { margin: 0 0 14px; }
-.callout { margin-top: 22px; padding: 16px 18px; border-left: 4px solid var(--rot); background: var(--flaeche); border-radius: 0 8px 8px 0; font-size: 16px; }
-.callout p { margin: 0; }
-.photo { margin: 0; }
-.photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; border-radius: 10px; display: block; box-shadow: 0 14px 40px rgba(0,0,0,.12); }
+/* Einstieg: Text links, Porträt groß bis zum Rand */
+.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 69px); border-bottom: 1px solid var(--linie); }
+.hero-text { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 64px max(24px, calc((100vw - 1040px) / 2 + 24px)); padding-right: 56px; }
+.badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; padding: 6px 12px; border: 1px solid var(--linie); border-radius: 999px; color: var(--muted); }
+.badge i { width: 8px; height: 8px; border-radius: 50%; background: #22a55a; box-shadow: 0 0 0 0 rgba(34,165,90,.5); animation: puls 2.4s infinite; }
+@keyframes puls { 70% { box-shadow: 0 0 0 8px rgba(34,165,90,0); } 100% { box-shadow: 0 0 0 0 rgba(34,165,90,0); } }
+.hero h1 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: .01em; color: var(--muted); }
+.hero .tagline { margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1.04; letter-spacing: -.03em; font-weight: 700; }
+.hero .tagline em { font-style: normal; color: var(--rot); }
+.hero .role { margin: 0; color: var(--muted); font-size: 18px; max-width: 34em; }
+.hero .role b { color: var(--text); font-weight: 600; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 16px; text-decoration: none; border: 1.5px solid var(--linie); }
+.btn.primary { background: var(--rot); border-color: var(--rot); color: #fff; }
+.btn.primary:hover { color: #fff; filter: brightness(.92); }
+.btn:hover { border-color: var(--rot); }
+.photo { margin: 0; position: relative; overflow: hidden; background: var(--flaeche); }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; }
+
+/* Kacheln unter dem Einstieg */
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 40px 0; }
+.tile { border: 1px solid var(--linie); border-radius: 14px; padding: 20px; background: var(--grund); display: flex; flex-direction: column; gap: 6px; min-height: 160px; }
+.tile .k { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--rot); font-weight: 700; }
+.tile b { font-size: 18px; line-height: 1.3; }
+.tile small { color: var(--muted); font-size: 15px; }
+.tile.kontakt { background: var(--rot); border-color: var(--rot); color: #fff; justify-content: space-between; }
+.tile.kontakt .k { color: rgba(255,255,255,.85); }
+.tile.kontakt a { color: #fff; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 9px 14px; border-radius: 999px; background: rgba(255,255,255,.16); align-self: flex-start; font-size: 15px; }
+.tile.kontakt a:hover { background: rgba(255,255,255,.26); }
+
+/* Laufband „Engagiert bei“ */
+.marquee { border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); padding: 22px 0; overflow: hidden; display: flex; align-items: center; gap: 28px; }
+.marquee .lbl { flex: none; padding-left: max(24px, calc((100vw - 1040px) / 2 + 24px)); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.marquee .track { display: flex; gap: 0; width: max-content; animation: laufen 38s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+.marquee .track span { font-size: 22px; font-weight: 600; letter-spacing: -.01em; color: var(--text); opacity: .55; white-space: nowrap; padding: 0 22px; display: inline-flex; align-items: center; gap: 44px; }
+.marquee .track span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rot); opacity: .9; }
+.marquee .mask { overflow: hidden; flex: 1; -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+@keyframes laufen { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee .track { animation: none; } }
+
+/* Über mich */
+.about p { margin: 0 0 14px; max-width: 46em; font-size: 18px; }
 
 /* Abschnitte */
 .sec { border-top: 1px solid var(--linie); padding: 40px 0; }
@@ -200,14 +235,24 @@ section[id] { scroll-margin-top: 80px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tags span { font-size: 15px; padding: 5px 13px; background: var(--flaeche); border-radius: 999px; }
 
+/* Bewegung (js/motion.js) */
+.motion .hero, .motion .top .wrap { visibility: hidden; }   /* kurz verstecken, bis GSAP die Startpositionen gesetzt hat */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 5px; background: var(--rot); transform: scaleX(0); transform-origin: 0 50%; z-index: 20; pointer-events: none; }
+.hero .tagline .w { display: inline-block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; vertical-align: top; }
+
+.gallery figure { overflow: hidden; }
+.card { will-change: transform; transform-style: preserve-3d; }
+.card img { transition: none; }
 footer { border-top: 1px solid var(--linie); padding: 26px 0 50px; color: var(--muted); font-size: 14px; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; }
 
 @media (max-width: 900px) {
   .top nav { display: none; }
   .top .social { margin-left: auto; }
-  .intro { grid-template-columns: 1fr; gap: 28px; padding-top: 32px; }
-  .photo { order: -1; max-width: 280px; }
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-text { padding: 36px 24px 40px; }
+  .photo { order: -1; height: 62vh; min-height: 380px; }
+  .bento { grid-template-columns: 1fr 1fr; }
   .cards { grid-template-columns: 1fr 1fr; }
   .two { grid-template-columns: 1fr; gap: 32px; }
 }
@@ -215,8 +260,13 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
   .wrap { padding: 0 18px; }
   .top .me { font-size: 16px; }
   .social a { width: 32px; height: 32px; }
-  .photo { max-width: 200px; }
-  .photo img { aspect-ratio: 1 / 1; object-position: 50% 15%; }
+  .hero-text { padding: 28px 18px 32px; }
+  .photo { height: 54vh; min-height: 320px; }
+  .bento { grid-template-columns: 1fr; }
+  .marquee { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .marquee .lbl { padding-left: 18px; }
+  .marquee .mask { width: 100%; }
+  .marquee .track span { font-size: 18px; }
   .cards, .gallery { grid-template-columns: 1fr; }
   .list li, .two .list li { grid-template-columns: 1fr; gap: 0; }
 }
@@ -238,19 +288,44 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
   </div>
 </header>
 
+<section class="hero" id="start">
+  <div class="hero-text">
+    <span class="badge"><i></i>Offen für Gespräche &amp; Einladungen</span>
+    <h1>Mehdi Vassigh Ansari</h1>
+    <p class="tagline">Politik vor Ort.<br><em>Mit Blick auf die Welt.</em></p>
+    <p class="role"><b>Vorsitzender der Jusos Aachen</b> · Sachkundiger Bürger in Stadt und StädteRegion Aachen · Politikwissenschaft an der RWTH Aachen</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">Kontakt aufnehmen</a>
+      <a class="btn" href="#ueber-mich">Mehr über mich</a>
+    </div>
+  </div>
+  <figure class="photo"><img src="images/portrait-gross.jpg" alt="Porträt von Mehdi Vassigh Ansari" width="1333" height="2000" fetchpriority="high"></figure>
+</section>
+
+<div class="marquee" aria-label="Engagiert bei">
+  <span class="lbl">Engagiert bei</span>
+  <div class="mask"><div class="track">
+    <span>SPD</span><span>Jusos Aachen</span><span>SPD-AG Migration &amp; Vielfalt</span><span>Stadt Aachen</span><span>StädteRegion Aachen</span><span>RWTH Aachen</span><span>Stiftung Mercator</span><span>Deutschlandstiftung Integration</span>
+    <span aria-hidden="true">SPD</span><span aria-hidden="true">Jusos Aachen</span><span aria-hidden="true">SPD-AG Migration &amp; Vielfalt</span><span aria-hidden="true">Stadt Aachen</span><span aria-hidden="true">StädteRegion Aachen</span><span aria-hidden="true">RWTH Aachen</span><span aria-hidden="true">Stiftung Mercator</span><span aria-hidden="true">Deutschlandstiftung Integration</span>
+  </div></div>
+</div>
+
 <main class="wrap">
 
-  <!-- Intro -->
-  <section class="intro" id="ueber-mich">
-    <div>
-      <h1>Mehdi Vassigh Ansari</h1>
-      <p class="role"><b>Vorsitzender der Jusos Aachen</b> · Sachkundiger Bürger in Stadt und StädteRegion Aachen · Politikwissenschaft an der RWTH Aachen</p>
-      <p>Ich studiere Gesellschaftswissenschaften mit Schwerpunkt <strong>Politikwissenschaft an der RWTH Aachen</strong>. Mich interessieren vor allem die Internationalen Beziehungen – insbesondere Sicherheitspolitik und Diplomatie.</p>
-      <p>Parallel mache ich Politik vor Ort: als <strong>Vorsitzender der Jusos Aachen</strong>, als Sachkundiger Bürger für die SPD in Stadt und StädteRegion Aachen, im <strong>Bundesvorstand der SPD-AG Migration &amp; Vielfalt</strong> und in der Öffentlichkeitsarbeit der SPD-Fraktion im Städteregionstag.</p>
-      <p>Mein Ziel ist, wissenschaftliche Analyse und politische Praxis zu verbinden – perspektivisch in der Außen- und Sicherheitspolitik.</p>
-      <div class="callout" id="kontakt"><p>Anfragen zu Veranstaltungen, Gesprächen oder Zusammenarbeit gern per E-Mail an <a href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">mehdi.vassigh-ansari@jusos-aachen.de</a>.</p></div>
-    </div>
-    <figure class="photo"><img src="images/portrait-hero.jpg" alt="Porträt von Mehdi Vassigh Ansari" width="800" height="1000"></figure>
+  <!-- Kacheln -->
+  <section class="bento" aria-label="Auf einen Blick">
+    <div class="tile"><span class="k">Aktuell</span><b>Vorsitzender der Jusos Aachen</b><small>und kooptiert im Bundesvorstand der SPD-AG Migration &amp; Vielfalt</small></div>
+    <div class="tile"><span class="k">Mandate</span><b>Sachkundiger Bürger</b><small>Rat der Stadt Aachen und StädteRegion Aachen</small></div>
+    <div class="tile"><span class="k">Studium</span><b>Politikwissenschaft, RWTH Aachen</b><small>Internationale Beziehungen, Sicherheitspolitik</small></div>
+    <div class="tile kontakt" id="kontakt"><span class="k">Kontakt</span><b>Für Veranstaltungen, Gespräche und Zusammenarbeit</b><a href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">E-Mail schreiben →</a></div>
+  </section>
+
+  <!-- Über mich -->
+  <section class="sec about" id="ueber-mich">
+    <div class="sec-head"><h2>Über mich</h2></div>
+    <p>Ich studiere Gesellschaftswissenschaften mit Schwerpunkt <strong>Politikwissenschaft an der RWTH Aachen</strong>. Mich interessieren vor allem die Internationalen Beziehungen – insbesondere Sicherheitspolitik und Diplomatie.</p>
+    <p>Parallel mache ich Politik vor Ort: als <strong>Vorsitzender der Jusos Aachen</strong>, als Sachkundiger Bürger für die SPD in Stadt und StädteRegion Aachen, im <strong>Bundesvorstand der SPD-AG Migration &amp; Vielfalt</strong> und in der Öffentlichkeitsarbeit der SPD-Fraktion im Städteregionstag.</p>
+    <p>Mein Ziel ist, wissenschaftliche Analyse und politische Praxis zu verbinden – perspektivisch in der Außen- und Sicherheitspolitik.</p>
   </section>
 
   <!-- Ämter -->
@@ -355,5 +430,10 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
     <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
   </div>
 </footer>
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/SplitText.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script src="js/motion.js"></script>
 </body>
 </html>
