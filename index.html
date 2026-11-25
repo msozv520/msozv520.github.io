@@ -246,6 +246,25 @@ section[id] { scroll-margin-top: 80px; }
 footer { border-top: 1px solid var(--linie); padding: 26px 0 50px; color: var(--muted); font-size: 14px; }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; }
 
+/* ===== Fahnen-Video hinter der ganzen Seite (dunkles Design) ===== */
+:root { --text: #f4f4f4; --muted: rgba(255,255,255,.72); --linie: rgba(255,255,255,.16); --grund: rgba(18,18,18,.55); --flaeche: rgba(255,255,255,.08); --rot: #ff3b45; color-scheme: dark; }
+body { background: #111; }
+.seiten-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #111 url(videos/fahne.jpg) center / cover; }
+.seiten-bg video { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.04); }
+.seiten-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.62), rgba(10,10,10,.8)); }
+body { background: transparent; }
+.top { background: rgba(14,14,14,.55); }
+.tile, .card { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.tile.kontakt { background: #e3000f; border-color: #e3000f; }
+.btn.primary { background: #e3000f; border-color: #e3000f; }
+.hero .tagline em { color: #ff5a62; }
+/* Videos */
+.reels { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: thin; }
+.reels figure { margin: 0; flex: 0 0 min(240px, 70vw); scroll-snap-align: start; }
+.reels video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 12px; background: #000; display: block; }
+.reels figcaption { margin-top: 10px; font-size: 15px; color: var(--muted); }
+.reels figcaption b { display: block; color: var(--text); }
+
 @media (max-width: 900px) {
   .top nav { display: none; }
   .top .social { margin-left: auto; }
@@ -278,7 +297,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
   <div class="wrap">
     <a class="me" href="./">Mehdi Vassigh Ansari</a>
     <nav aria-label="Seitennavigation">
-      <a href="#aemter">Ämter</a><a href="#medien">Medien</a><a href="#diversify">Diversify</a><a href="#werdegang">Werdegang</a><a href="#kontakt">Kontakt</a>
+      <a href="#aemter">Ämter</a><a href="#medien">Medien</a><a href="#videos">Videos</a><a href="#diversify">Diversify</a><a href="#werdegang">Werdegang</a><a href="#kontakt">Kontakt</a>
     </nav>
     <div class="social">
       <a href="mailto:mehdi.vassigh-ansari@jusos-aachen.de" aria-label="E-Mail" title="E-Mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
@@ -287,6 +306,8 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
     </div>
   </div>
 </header>
+
+<div class="seiten-bg" aria-hidden="true"><video id="fahne" src="videos/fahne.mp4" poster="videos/fahne.jpg" muted loop playsinline preload="auto"></video></div>
 
 <section class="hero" id="start">
   <div class="hero-text">
@@ -338,6 +359,7 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
       <li><span class="when">seit 12/2024</span><span><a href="https://www.aachen.de/ratsinfo-views/mandatstraeger/EDB-HWifH7Wl9xME/vassigh-ansari/"><b>Sachkundiger Bürger im Rat der Stadt Aachen</b></a><small>SPD-Ratsfraktion · stv. Mitglied im Wohnungs- und Liegenschaftsausschuss</small></span></li>
       <li><span class="when">seit 12/2025</span><span><a href="https://gremieninfo.staedteregion-aachen.de/public/kp020?KPLFDNR=1000240"><b>Sachkundiger Bürger in der StädteRegion Aachen</b></a><small>und stimmberechtigt im Arbeitskreis der Integrationsräte</small></span></li>
       <li><span class="when">seit 12/2024</span><span><b>Vorstand SPD-Ortsverein Laurensberg</b></span></li>
+      <li><span class="when">seit 07/2026</span><span><b>74. Studierendenparlament der RWTH Aachen</b><small>Stellvertretendes Mitglied für die Juso-Hochschulgruppe</small></span></li>
     </ul>
   </section>
 
@@ -368,6 +390,20 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
   </section>
 
   <!-- Fotos -->
+  <section class="sec" id="videos">
+    <div class="sec-head"><h2>Videos</h2><span class="more">zum Abspielen antippen · seitlich wischen →</span></div>
+    <div class="reels">
+      <figure><video src="videos/parteitag.mp4" poster="videos/parteitag.jpg" controls playsinline preload="none"></video><figcaption><b>Rede beim Unterbezirksparteitag</b>SPD Aachen-Stadt · Juli 2026</figcaption></figure>
+      <figure><video src="videos/csd.mp4" poster="videos/csd.jpg" controls playsinline preload="none"></video><figcaption><b>Zuckerwatte auf dem CSD</b>zusammen mit SPD Queer</figcaption></figure>
+      <figure><video src="videos/brd-sondervermoegen.mp4" poster="videos/brd-sondervermoegen.jpg" controls playsinline preload="none"></video><figcaption><b>Was ist eigentlich das Sondervermögen?</b>mit Şilan für @brd_wasgeht · März 2026</figcaption></figure>
+      <figure><video src="videos/brd-buergergeld.mp4" poster="videos/brd-buergergeld.jpg" controls playsinline preload="none"></video><figcaption><b>Verteilung statt Spaltung</b>Bürgergeld, Rechtsruck und Vermögen – mit Şilan für @brd_wasgeht · März 2026</figcaption></figure>
+      <figure><video src="videos/rede-okt-2025.mp4" poster="videos/rede-okt-2025.jpg" controls playsinline preload="none"></video><figcaption><b>Rede am Elisenbrunnen</b>„Wir sind Aachen“ · Okt. 2025</figcaption></figure>
+      <figure><video src="videos/nrw-jusos-rede.mp4" poster="videos/nrw-jusos-rede.jpg" controls playsinline preload="none"></video><figcaption><b>Rede auf der NRW-Juso-Landeskonferenz</b>Gelsenkirchen · mein Antrag „Keine Ausnahmen beim Völkerrecht“ wurde angenommen · 2025</figcaption></figure>
+      <figure><video src="videos/gespraech-schulz.mp4" poster="videos/gespraech-schulz.jpg" controls playsinline preload="none"></video><figcaption><b>Im Gespräch mit Martin Schulz</b>„Gegen das Entweder-Oder – für Zusammenhalt und Gerechtigkeit“ · Juni 2025</figcaption></figure>
+      <figure><video src="videos/claim-2024.mp4" poster="videos/claim-2024.jpg" controls playsinline preload="none"></video><figcaption><b>3.080 antimuslimische Vorfälle 2024</b>zum Lagebild der CLAIM-Allianz · Juni 2025</figcaption></figure>
+    </div>
+  </section>
+
   <section class="sec" id="fotos">
     <div class="sec-head"><h2>„Wir sind Aachen“ – Rede am Elisenbrunnen</h2><a class="more" href="https://www.aachener-zeitung.de/lokales/wir-sind-aachen-–-demo-gegen-rassismus-und-fuer-vielfalt/100297463.html">Bericht lesen →</a></div>
     <div class="gallery">
@@ -435,5 +471,6 @@ footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: s
 <script src="js/SplitText.min.js"></script>
 <script src="js/lenis.min.js"></script>
 <script src="js/motion.js"></script>
+<script src="js/video.js"></script>
 </body>
 </html>
