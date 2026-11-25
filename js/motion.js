@@ -27,7 +27,7 @@
   if (!('IntersectionObserver' in window)) { root.classList.remove('motion'); return; }
   var io = new IntersectionObserver(function (eintraege) {
     eintraege.forEach(function (e) {
-      if (e.isIntersecting) { e.target.style.opacity = 1; e.target.style.transform = 'none'; io.unobserve(e.target); }
+      if (e.isIntersecting) { e.target.style.transform = 'none'; io.unobserve(e.target); }
     });
   }, { rootMargin: '0px 0px -8% 0px' });
   ziele.forEach(function (el) { io.observe(el); });

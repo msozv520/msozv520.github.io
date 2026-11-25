@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mehdi Vassigh Ansari</title>
-<meta name="description" content="Mehdi Vassigh Ansari – Vorsitzender der Jusos Aachen, Sachkundiger Bürger in Stadt und StädteRegion Aachen, studiert Politikwissenschaft an der RWTH Aachen. Schwerpunkt Internationale Beziehungen und Sicherheitspolitik.">
+<meta name="description" content="Mehdi Vassigh Ansari – Vorsitzender der Jusos Aachen, Sachkundiger Bürger in Stadt und StädteRegion Aachen, studiert Politikwissenschaft (B.A. Gesellschaftswissenschaften) an der RWTH Aachen. Engagiert für ein soziales, vielfältiges Aachen mitten in Europa.">
 <link rel="canonical" href="https://mehdi-vassigh-ansari.de/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Mehdi Vassigh Ansari">
@@ -44,7 +44,7 @@
       "url": "https://mehdi-vassigh-ansari.de/images/portrait.jpg"
     },
     "jobTitle": "Vorsitzender der Jusos Aachen",
-    "description": "Kommunalpolitiker (SPD) und Student der Politikwissenschaft an der RWTH Aachen mit Schwerpunkt Internationale Beziehungen und Sicherheitspolitik.",
+    "description": "Kommunalpolitiker (SPD) aus Aachen, studiert Politikwissenschaft (B.A. Gesellschaftswissenschaften) an der RWTH Aachen, Interesse an internationalen Beziehungen.",
     "email": "mailto:mehdi.vassigh-ansari@jusos-aachen.de",
     "homeLocation": {
       "@type": "Place",
@@ -134,7 +134,7 @@
 :root { --rot: #e3000f; --gelb: #fbbb32; --navi: #1d3342; --sand: #e1dcd2; --text: #f3f1ec; --muted: rgba(243,241,236,.74); --linie: rgba(255,255,255,.14); color-scheme: dark; }
 * { box-sizing: border-box; }
 html { -webkit-font-smoothing: antialiased; overflow-x: clip; }
-body { margin: 0; background: #0c1820; color: var(--text); font: 18px/1.6 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+body { margin: 0; background: #0c1820; color: var(--text); font: 18px/1.6 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; overflow-x: clip; }
 a { color: inherit; text-decoration-color: var(--rot); text-underline-offset: 3px; }
 a:hover { color: var(--gelb); }
 img, video { display: block; max-width: 100%; }
@@ -180,16 +180,18 @@ h1, h2, h3, .p, blockquote, .saetze li, .schild, .lauf, .me, .dach { font-family
 @keyframes drehL { to { transform: rotate(-360deg); } }
 
 /* Laufband mit Fäusten in allen Hautfarben */
+.lauf-rahmen { overflow: clip; padding: 24px 0; margin: -24px 0; }
 .lauf { background: var(--rot); color: #fff; overflow: hidden; transform: rotate(-1.4deg); margin: 0 -20px; padding: 16px 0; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
 .lauf-spur { display: flex; width: max-content; animation: laufen 36s linear infinite; font-size: 30px; }
 .lauf span { white-space: nowrap; display: inline-flex; align-items: center; }
 .lauf span::after { margin: 0 34px; font-style: normal; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
-.lauf span:nth-child(6n+1)::after { content: "✊🏻"; }
-.lauf span:nth-child(6n+2)::after { content: "✊🏾"; }
-.lauf span:nth-child(6n+3)::after { content: "✊🏼"; }
-.lauf span:nth-child(6n+4)::after { content: "✊🏿"; }
-.lauf span:nth-child(6n+5)::after { content: "✊🏽"; }
-.lauf span:nth-child(6n+6)::after { content: "✊"; }
+.lauf span:nth-child(7n+1)::after { content: "✊🏻"; }
+.lauf span:nth-child(7n+2)::after { content: "✊🏾"; }
+.lauf span:nth-child(7n+3)::after { content: "✊🏼"; }
+.lauf span:nth-child(7n+4)::after { content: "✊🏿"; }
+.lauf span:nth-child(7n+5)::after { content: "✊🏽"; }
+.lauf span:nth-child(7n+6)::after { content: "✊"; }
+.lauf span:nth-child(7n+7)::after { content: "✊🏽"; }
 .lauf:hover .lauf-spur { animation-play-state: paused; }
 @keyframes laufen { to { transform: translateX(-50%); } }
 
@@ -222,7 +224,10 @@ h1, h2, h3, .p, blockquote, .saetze li, .schild, .lauf, .me, .dach { font-family
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.12); border-radius: 20px; overflow: hidden; }
 .karte { border-top: 4px solid var(--rot); background: rgba(12,24,32,.74); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 30px; display: flex; flex-direction: column; gap: 10px; transition: background .25s; }
 .karte:hover { background: rgba(227,0,15,.9); }
-.karte .ic { position: relative; width: 60px; height: 60px; margin-bottom: 6px; }
+.karte.breit { grid-column: 1 / -1; flex-direction: row; gap: 26px; align-items: flex-start; }
+.karte.breit > div { display: flex; flex-direction: column; gap: 10px; }
+.karte.breit p { max-width: 52em; }
+.karte .ic { flex: none; position: relative; width: 60px; height: 60px; margin-bottom: 6px; }
 .karte .ic img { position: absolute; inset: 0; width: 60px; height: 60px; transition: opacity .25s; }
 .karte .ic-weiss { opacity: 0; }
 .karte:hover .ic-weiss { opacity: 1; } .karte:hover .ic-rot { opacity: 0; }
@@ -293,8 +298,8 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
 footer img { height: 44px; width: auto; }
 
 /* Einblenden beim Scrollen (js/motion.js) */
-.motion .rein { opacity: 0; transform: translateY(26px); }
-.rein { transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+.motion .rein { transform: translateY(16px); }
+.rein { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
 
 @media (max-width: 980px) {
   .top .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; gap: 6px 16px; }
@@ -312,6 +317,7 @@ footer img { height: 44px; width: auto; }
   .ueber-grid, .two { grid-template-columns: 1fr; gap: 28px; }
   .ueber-foto { position: static; max-width: 420px; }
   .grid { grid-template-columns: 1fr; }
+  .karte.breit { flex-direction: column; gap: 10px; }
   .cards, .gallery { grid-template-columns: 1fr 1fr; }
   .list li, .two .list li { grid-template-columns: 90px 1fr; }
   .kontakt .box { padding: 40px 24px; }
@@ -319,7 +325,7 @@ footer img { height: 44px; width: auto; }
   .zitat .linie { width: 320px; height: 320px; }
 }
 @media (max-width: 520px) { .saetze li { overflow-wrap: break-word; hyphens: auto; font-size: clamp(22px, 7vw, 30px); gap: 14px; } .saetze li i { width: 36px; height: 28px; } .me { font-size: 16px; } .social a { width: 30px; } .gross { font-size: clamp(34px, 10.5vw, 58px); } .zitat blockquote { font-size: clamp(30px, 9vw, 40px); } .cards, .gallery { grid-template-columns: 1fr; } .lauf-spur { font-size: 24px; } .saetze { padding-top: 80px; } }
-@media (prefers-reduced-motion: reduce) { .lauf-spur, .rahmen .kreis { animation: none; } .motion .rein { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .lauf-spur, .rahmen .kreis { animation: none; } .motion .rein { transform: none; } }
 
 </style>
 </head>
@@ -351,7 +357,7 @@ footer img { height: 44px; width: auto; }
   <div class="rahmen"><i class="form kreis" aria-hidden="true"></i><img src="images/portrait-gross.jpg" alt="Porträt von Mehdi Vassigh Ansari" width="1333" height="2000" fetchpriority="high"><i class="form raster" aria-hidden="true"></i><span class="schild">Aachen, born &amp; raised</span></div>
 </section>
 
-<div class="lauf" aria-label="Meine Themen"><div class="lauf-spur"><span>Bezahlbares Wohnen</span><span>Bildung für alle</span><span>Verteilung statt Spaltung</span><span>Demokratie verteidigen</span><span>Vielfalt in die Mitte</span><span>Gegen Rassismus</span><span aria-hidden="true">Bezahlbares Wohnen</span><span aria-hidden="true">Bildung für alle</span><span aria-hidden="true">Verteilung statt Spaltung</span><span aria-hidden="true">Demokratie verteidigen</span><span aria-hidden="true">Vielfalt in die Mitte</span><span aria-hidden="true">Gegen Rassismus</span></div></div>
+<div class="lauf-rahmen"><div class="lauf" aria-label="Meine Themen"><div class="lauf-spur"><span>Bezahlbares Wohnen</span><span>Bildung für alle</span><span>Verteilung statt Spaltung</span><span>Demokratie verteidigen</span><span>Vielfalt in die Mitte</span><span>Gegen Rassismus</span><span>Aachen mitten in Europa</span><span aria-hidden="true">Bezahlbares Wohnen</span><span aria-hidden="true">Bildung für alle</span><span aria-hidden="true">Verteilung statt Spaltung</span><span aria-hidden="true">Demokratie verteidigen</span><span aria-hidden="true">Vielfalt in die Mitte</span><span aria-hidden="true">Gegen Rassismus</span><span aria-hidden="true">Aachen mitten in Europa</span></div></div></div>
 
 <div class="wrap">
   <section class="saetze" id="haltung"><ul>
@@ -369,7 +375,7 @@ footer img { height: 44px; width: auto; }
         <h3>Aachen ist meine Heimat</h3>
         <p>Ich bin in Aachen geboren und aufgewachsen. Das ist meine Stadt – deshalb setze ich mich mit ganzer Kraft für sie ein.</p>
         <p>Ich kenne die Menschen und ihre Probleme. Ob an der Haustür, im Park, im Supermarkt, in der Apotheke oder an der Bushaltestelle: Wir kommen ins Gespräch, und schnell wird klar, wo es hakt. <em>Mal ist es der Bus, der zu spät kommt, mal fehlen Parkplätze, mal Kitaplätze.</em> Und oft fehlt genau den Menschen, die am meisten betroffen sind, eine Stimme in der Politik. Das will ich ändern.</p>
-        <p>Ich studiere Politikwissenschaft an der RWTH Aachen, mit Schwerpunkt Internationale Beziehungen. Denn was in der Welt passiert, kommt auch in Aachen an. Als Grenzstadt im Dreiländereck spüren wir das jeden Tag.</p>
+        <p>Ich studiere Politikwissenschaft (B.A. Gesellschaftswissenschaften) an der RWTH Aachen, mein Interesse gilt besonders den internationalen Beziehungen. Denn was in der Welt passiert, kommt auch in Aachen an. Als Grenzstadt im Dreiländereck spüren wir das jeden Tag.</p>
         <h3>Warum ich Politik mache</h3>
         <p class="persoenlich">Mir wird oft gesagt, ich soll mich kleiner machen. Ich habe mich aber anders entschieden. In den Räumen, in denen über uns entschieden wird, fehlen oft genau die Menschen, um die es geht. Deshalb mache ich Politik: damit mehr von uns am Tisch sitzen – und nicht dankbar sein müssen, dass sie mitspielen dürfen.</p>
         <p>Ich wurde einmal gefragt, warum ich nicht einfach zuschauen kann. Meine Antwort: Ich kann nicht so tun, als wäre Demokratie selbstverständlich. Wir kennen die Geschichten von Menschen, die verfolgt werden, weil sie ihre Meinung sagen oder für Freiheit kämpfen. Menschen sterben für Rechte, die hier vielen normal erscheinen: wählen zu dürfen, die eigene Stimme zu erheben, sich gegen Ungerechtigkeit zu wehren.</p>
@@ -387,6 +393,7 @@ footer img { height: 44px; width: auto; }
       <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-wohnen.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-wohnen.svg" alt="" width="60" height="60"></span><h3>Bezahlbares Wohnen</h3><p>Wohnen ist kein Luxus, sondern Existenzminimum. Jede und jeder hat das Recht auf ein Dach über dem Kopf. Wir müssen dafür sorgen, dass Wohnen in Aachen wieder bezahlbar wird – für Studierende, Familien und Rentner:innen.</p><span class="beleg"><a href="#aemter">Kommunalpolitik in Stadt und StädteRegion →</a></span></article>
       <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-diversitaet.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-diversitaet.svg" alt="" width="60" height="60"></span><h3>Vielfalt in die Mitte</h3><p>Queere Menschen, Migrant:innen, junge Leute – sie gehören in die Mitte der Politik, nicht an den Rand. Niemand soll sich verstecken oder kleiner machen müssen, um dazuzugehören.</p><span class="beleg"><a href="#videos">CSD mit SPD Queer · AG Migration &amp; Vielfalt →</a></span></article>
       <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-bildung.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-bildung.svg" alt="" width="60" height="60"></span><h3>Bildung für alle</h3><p>Ob Studium oder Ausbildung: Bildung darf keine Frage des Geldbeutels oder der Herkunft sein. Wir brauchen bezahlbaren Wohnraum für Studierende und Azubis, ein BAföG und eine Ausbildungsvergütung, die zum Leben reichen. Im Studierendenparlament der RWTH setze ich mich mit der Juso-Hochschulgruppe dafür ein, dass die Hochschule alle mitnimmt.</p><span class="beleg"><a href="#aemter">74. Studierendenparlament →</a></span></article>
+      <article class="karte breit"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-europa.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-europa.svg" alt="" width="60" height="60"></span><div><h3>Aachen mitten in Europa</h3><p>Als Grenzstadt im Dreiländereck leben wir Europa jeden Tag: Wir arbeiten, studieren und kaufen ein über Grenzen hinweg. Was in der Welt passiert, kommt hier an. Ich stehe für offene Grenzen, Zusammenarbeit mit unseren Nachbarn und Solidarität, die nicht an der Landesgrenze aufhört.</p><span class="beleg"><a href="#werdegang">meet!-Mercator Europa Tour · Diversify →</a></span></div></article>
     </div>
   </section>
 </div>
