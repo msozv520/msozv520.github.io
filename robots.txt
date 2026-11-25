@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://msozv520.github.io/sitemap.xml
+Sitemap: https://mehdi-vassigh-ansari.de/sitemap.xml
