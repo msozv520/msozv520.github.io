@@ -11,7 +11,7 @@
 <meta property="og:description" content="Vorsitzender der Jusos Aachen · Sachkundiger Bürger Stadt & StädteRegion Aachen · Politikwissenschaft (RWTH)">
 <meta property="og:url" content="https://mehdi-vassigh-ansari.de/">
 <meta property="og:image" content="https://mehdi-vassigh-ansari.de/images/portrait.jpg">
-<meta name="theme-color" content="#e3000f">
+<meta name="theme-color" content="#1d3342">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="js/lenis.css">
 <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion');</script>
@@ -126,233 +126,207 @@
 </script>
 
 <style>
-:root { --rot: #e3000f; --text: #141414; --muted: #5d5d5d; --linie: #e8e8e8; --grund: #ffffff; --flaeche: #f6f5f3; }
-@media (prefers-color-scheme: dark) {
-  :root { --text: #f2f2f2; --muted: #a9a9a9; --linie: #2b2b2b; --grund: #121212; --flaeche: #1c1c1c; --rot: #ff3b45; }
-}
-* { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; background: var(--grund); color: var(--text); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-a { color: inherit; text-decoration-color: var(--rot); text-underline-offset: 3px; }
-a:hover { color: var(--rot); }
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
-section[id] { scroll-margin-top: 80px; }
+/* Schriften: NRW-Juso-CD (lokal, OFL-Lizenz in fonts/) */
+@font-face { font-family: 'Poppins'; src: url(fonts/Poppins-ExtraBoldItalic.ttf) format('truetype'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url(fonts/Poppins-BlackItalic.ttf) format('truetype'); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Assistant'; src: url(fonts/Assistant-var.ttf) format('truetype'); font-weight: 200 800; font-display: swap; }
 
-/* Kopf: Name · Navigation · Symbole */
-.top { border-top: 5px solid var(--rot); border-bottom: 1px solid var(--linie); position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--grund) 92%, transparent); backdrop-filter: blur(8px); }
-.top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
-.top .me { font-weight: 700; font-size: 18px; text-decoration: none; white-space: nowrap; }
-.top nav { display: flex; gap: 22px; margin-left: auto; }
-.top nav a { text-decoration: none; font-size: 15px; color: var(--muted); }
-.top nav a:hover { color: var(--rot); }
-.social { display: flex; gap: 6px; }
-.social a { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; color: var(--muted); }
-.social a:hover { background: var(--flaeche); color: var(--rot); }
+:root { --rot: #e3000f; --gelb: #fbbb32; --navi: #1d3342; --sand: #e1dcd2; --text: #f3f1ec; --muted: rgba(243,241,236,.74); --linie: rgba(255,255,255,.14); color-scheme: dark; }
+* { box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; overflow-x: clip; }
+body { margin: 0; background: #0c1820; color: var(--text); font: 18px/1.6 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; overflow-x: hidden; }
+a { color: inherit; text-decoration-color: var(--rot); text-underline-offset: 3px; }
+a:hover { color: var(--gelb); }
+img, video { display: block; max-width: 100%; }
+h1, h2, h3, .p, blockquote, .saetze li, .schild, .lauf, .me, .dach { font-family: 'Poppins', system-ui, sans-serif; font-style: italic; font-weight: 800; letter-spacing: -.01em; line-height: 1.08; }
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+.form { display: block; -webkit-mask: var(--m) center / contain no-repeat; mask: var(--m) center / contain no-repeat; background: currentColor; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 999px; font-weight: 700; text-decoration: none; border: 2px solid rgba(255,255,255,.55); color: #fff; }
+.btn:hover { color: #fff; border-color: #fff; }
+.btn.voll { background: var(--rot); border-color: var(--rot); }
+.btn.hell { background: #fff; border-color: #fff; color: var(--rot); }
+
+/* Hintergrund: Fahne mit Navi-Ton */
+.seiten-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #0c1820 url(videos/fahne.jpg) center / cover; }
+.seiten-bg video { width: 100%; height: 100%; object-fit: cover; transform: scale(1.05); }
+.seiten-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(29,51,66,.82), rgba(8,16,22,.92)); }
+
+/* Kopfleiste */
+.top { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); background: rgba(12,24,32,.55); border-bottom: 1px solid rgba(255,255,255,.08); }
+.top .wrap { display: flex; align-items: center; gap: 24px; height: 68px; }
+.me { display: flex; align-items: center; gap: 12px; font-size: 19px; text-decoration: none; white-space: nowrap; }
+.me img { width: 34px; height: 34px; }
+.top nav { display: flex; gap: 20px; margin-left: auto; font-weight: 600; font-size: 16px; }
+.top nav a { text-decoration: none; opacity: .85; }
+.top nav a:hover { opacity: 1; }
+.social { display: flex; gap: 4px; }
+.social a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; }
+.social a:hover { background: rgba(255,255,255,.1); }
 .social svg { width: 18px; height: 18px; }
 
-/* Einstieg: Text links, Porträt groß bis zum Rand */
-.hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 69px); border-bottom: 1px solid var(--linie); }
-.hero-text { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 64px max(24px, calc((100vw - 1040px) / 2 + 24px)); padding-right: 56px; }
-.badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; padding: 6px 12px; border: 1px solid var(--linie); border-radius: 999px; color: var(--muted); }
-.badge i { width: 8px; height: 8px; border-radius: 50%; background: #22a55a; box-shadow: 0 0 0 0 rgba(34,165,90,.5); animation: puls 2.4s infinite; }
-@keyframes puls { 70% { box-shadow: 0 0 0 8px rgba(34,165,90,0); } 100% { box-shadow: 0 0 0 0 rgba(34,165,90,0); } }
-.hero h1 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: .01em; color: var(--muted); }
-.hero .tagline { margin: 0; font-size: clamp(38px, 5vw, 66px); line-height: 1.04; letter-spacing: -.03em; font-weight: 700; }
-.hero .tagline em { font-style: normal; color: var(--rot); }
-.hero .role { margin: 0; color: var(--muted); font-size: 18px; max-width: 34em; }
-.hero .role b { color: var(--text); font-weight: 600; }
-.btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; font-weight: 600; font-size: 16px; text-decoration: none; border: 1.5px solid var(--linie); }
-.btn.primary { background: var(--rot); border-color: var(--rot); color: #fff; }
-.btn.primary:hover { color: #fff; filter: brightness(.92); }
-.btn:hover { border-color: var(--rot); }
-.photo { margin: 0; position: relative; overflow: hidden; background: var(--flaeche); }
-.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; display: block; }
+/* Einstieg (wie Nachtfahne) */
+.held { min-height: calc(100vh - 68px); display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; padding-top: 30px; padding-bottom: 70px; }
+.held > * { min-width: 0; }
+.gross { font-size: clamp(54px, 7.2vw, 110px); font-weight: 900; margin: 0; line-height: .94; }
+.gross em { font-style: inherit; color: var(--gelb); display: block; }
+.rolle { font-size: 20px; color: var(--muted); max-width: 28em; margin: 26px 0 30px; }
+.rolle b { color: #fff; }
+.rahmen { position: relative; aspect-ratio: 4 / 5; max-height: 76vh; width: 100%; justify-self: end; }
+.rahmen .kreis { position: absolute; inset: -14%; color: rgba(255,255,255,.12); --m: url(images/cd/kreise-3.svg); animation: drehL 80s linear infinite; }
+.rahmen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; border-radius: 22px; }
+.rahmen .raster { position: absolute; left: -36px; bottom: -36px; width: 160px; height: 160px; color: var(--rot); --m: url(images/cd/raster.svg); }
+.schild { position: absolute; right: -18px; top: 26px; background: var(--rot); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 15px; transform: rotate(3deg); }
+@keyframes drehL { to { transform: rotate(-360deg); } }
 
-/* Kacheln unter dem Einstieg */
-.bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 40px 0; }
-.tile { border: 1px solid var(--linie); border-radius: 14px; padding: 20px; background: var(--grund); display: flex; flex-direction: column; gap: 6px; min-height: 160px; }
-.tile .k { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--rot); font-weight: 700; }
-.tile b { font-size: 18px; line-height: 1.3; }
-.tile small { color: var(--muted); font-size: 15px; }
-.tile.kontakt { background: var(--rot); border-color: var(--rot); color: #fff; justify-content: space-between; }
-.tile.kontakt .k { color: rgba(255,255,255,.85); }
-.tile.kontakt a { color: #fff; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 9px 14px; border-radius: 999px; background: rgba(255,255,255,.16); align-self: flex-start; font-size: 15px; }
-.tile.kontakt a:hover { background: rgba(255,255,255,.26); }
-
-/* Laufband „Engagiert bei“ */
-.marquee { border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); padding: 22px 0; overflow: hidden; display: flex; align-items: center; gap: 28px; }
-.marquee .lbl { flex: none; padding-left: max(24px, calc((100vw - 1040px) / 2 + 24px)); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.marquee .track { display: flex; gap: 0; width: max-content; animation: laufen 38s linear infinite; }
-.marquee:hover .track { animation-play-state: paused; }
-.marquee .track span { font-size: 22px; font-weight: 600; letter-spacing: -.01em; color: var(--text); opacity: .55; white-space: nowrap; padding: 0 22px; display: inline-flex; align-items: center; gap: 44px; }
-.marquee .track span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--rot); opacity: .9; }
-.marquee .mask { overflow: hidden; flex: 1; -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+/* Laufband mit Fäusten in allen Hautfarben */
+.lauf { background: var(--rot); color: #fff; overflow: hidden; transform: rotate(-1.4deg); margin: 0 -20px; padding: 16px 0; box-shadow: 0 10px 30px rgba(0,0,0,.3); }
+.lauf-spur { display: flex; width: max-content; animation: laufen 36s linear infinite; font-size: 30px; }
+.lauf span { white-space: nowrap; display: inline-flex; align-items: center; }
+.lauf span::after { margin: 0 34px; font-style: normal; font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif; }
+.lauf span:nth-child(6n+1)::after { content: "✊🏻"; }
+.lauf span:nth-child(6n+2)::after { content: "✊🏾"; }
+.lauf span:nth-child(6n+3)::after { content: "✊🏼"; }
+.lauf span:nth-child(6n+4)::after { content: "✊🏿"; }
+.lauf span:nth-child(6n+5)::after { content: "✊🏽"; }
+.lauf span:nth-child(6n+6)::after { content: "✊"; }
+.lauf:hover .lauf-spur { animation-play-state: paused; }
 @keyframes laufen { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .marquee .track { animation: none; } }
 
-/* Über mich */
-.about p { margin: 0 0 14px; max-width: 46em; font-size: 18px; }
+/* Haltung: Sätze mit SPD-Pfeilen */
+.saetze { padding: 120px 0 50px; }
+.saetze ul { margin: 0; padding: 0; }
+.saetze li { list-style: none; font-size: clamp(28px, 3.8vw, 54px); display: flex; align-items: center; gap: 22px; margin: 0 0 18px; }
+.saetze li i { flex: none; width: 54px; height: 42px; color: var(--rot); --m: url(images/cd/spd-pfeile.svg); }
 
 /* Abschnitte */
-.sec { border-top: 1px solid var(--linie); padding: 40px 0; }
-.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
-.sec-head h2 { margin: 0; font-size: 22px; letter-spacing: -.01em; }
-.sec-head .more { font-size: 15px; color: var(--muted); }
+.sec { padding: 70px 0; }
+.sec-head { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 30px; flex-wrap: wrap; }
+.sec-head h2 { margin: 0; font-size: clamp(36px, 4.6vw, 64px); }
+.sec-head .more { font-size: 16px; color: var(--muted); }
+.linie-klein { width: 220px; height: 70px; color: var(--gelb); --m: url(images/cd/linie.svg); margin-right: auto; }
 
-/* Liste mit Jahreszahl (Ämter, Auszeichnungen, Werdegang) */
-.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.list li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; }
-.list .when { color: var(--muted); font-size: 15px; font-variant-numeric: tabular-nums; padding-top: 1px; }
-.list b { font-weight: 600; display: block; }
-.list small { color: var(--muted); font-size: 15px; display: block; }
-.list a { text-decoration: none; }
-.list a:hover b { color: var(--rot); }
-.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-.two h3 { margin: 0 0 16px; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--rot); }
-.two .list li { grid-template-columns: 90px 1fr; }
+/* Über mich */
+.ueber-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; }
+.ueber-foto { margin: 0; position: sticky; top: 96px; }
+.ueber-foto .zoom { display: block; overflow: hidden; border-radius: 18px; aspect-ratio: 2 / 3; }
+.ueber-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); transform-origin: 50% 30%; }
+.ueber-foto figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.ueber-text h3 { margin: 0 0 12px; font-size: 18px; letter-spacing: .06em; text-transform: uppercase; color: var(--gelb); }
+.ueber-text h3:not(:first-child) { margin-top: 36px; }
+.ueber-text p { margin: 0 0 14px; max-width: 40em; }
+.ueber-text em { font-style: normal; font-weight: 700; color: #fff; }
+.ueber-text .persoenlich { font-size: 20px; border-left: 4px solid var(--rot); padding-left: 18px; }
 
-/* Karten (Medien) */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.card { display: flex; flex-direction: column; text-decoration: none; border: 1px solid var(--linie); border-radius: 10px; overflow: hidden; background: var(--grund); transition: transform .15s, box-shadow .15s; }
-.card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.09); color: inherit; }
-.card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: var(--flaeche); }
-.card .ph { aspect-ratio: 16 / 10; display: grid; place-items: center; background: var(--flaeche); color: var(--rot); font-weight: 700; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; text-align: center; padding: 12px; }
-.card .txt { padding: 14px 16px 16px; display: grid; gap: 4px; }
-.card .src { font-size: 13px; color: var(--muted); }
-.card b { font-weight: 600; line-height: 1.35; }
-.card:hover b { color: var(--rot); }
-.credit { font-size: 12px; color: var(--muted); margin-top: 16px; position: relative; z-index: 2; }
+/* Wofür ich stehe: Glas-Karten */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.12); border-radius: 20px; overflow: hidden; }
+.karte { border-top: 4px solid var(--rot); background: rgba(12,24,32,.74); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 30px; display: flex; flex-direction: column; gap: 10px; transition: background .25s; }
+.karte:hover { background: rgba(227,0,15,.9); }
+.karte .ic { position: relative; width: 60px; height: 60px; margin-bottom: 6px; }
+.karte .ic img { position: absolute; inset: 0; width: 60px; height: 60px; transition: opacity .25s; }
+.karte .ic-weiss { opacity: 0; }
+.karte:hover .ic-weiss { opacity: 1; } .karte:hover .ic-rot { opacity: 0; }
+.karte h3 { margin: 0; font-size: 23px; color: var(--gelb); transition: color .25s; }
+.karte:hover h3 { color: #fff; }
+.karte p { margin: 0; color: var(--muted); font-size: 16.5px; }
+.karte:hover p { color: #fff; }
+.karte .beleg { margin-top: auto; padding-top: 14px; font-size: 15px; font-weight: 700; }
+.karte .beleg a { color: #ff6b73; }
+.karte .beleg a:hover { color: var(--gelb); }
+.karte:hover .beleg a { color: #fff; }
+.karte .beleg a { text-decoration: none; }
 
-/* Fotos */
-.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.gallery figure { margin: 0; }
-.gallery .wide { grid-column: 1 / -1; }
-.gallery .wide img { aspect-ratio: 16 / 8; object-position: 60% 40%; }
-.gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: 8px; }
-.gallery figcaption { font-size: 12px; color: var(--muted); margin-top: 4px; }
+/* Zitat: Navi-Band mit roter Linie */
+.zitat { background: var(--navi); padding: 120px 0; position: relative; overflow: hidden; margin: 50px 0; }
+.zitat blockquote { margin: 0; font-size: clamp(36px, 4.8vw, 70px); max-width: 15em; position: relative; z-index: 1; line-height: 1.05; }
+.zitat blockquote em { color: var(--gelb); font-style: inherit; }
+.zitat .wer { margin: 28px 0 0; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--sand); position: relative; z-index: 1; }
+.zitat .linie { position: absolute; right: -40px; bottom: -80px; width: 540px; height: 540px; color: var(--rot); --m: url(images/cd/linie.svg); }
 
-.tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.tags span { font-size: 15px; padding: 5px 13px; background: var(--flaeche); border-radius: 999px; }
-
-/* Bewegung (js/motion.js) */
-.motion .hero, .motion .top .wrap { visibility: hidden; }   /* kurz verstecken, bis GSAP die Startpositionen gesetzt hat */
-.progress { position: fixed; top: 0; left: 0; right: 0; height: 5px; background: var(--rot); transform: scaleX(0); transform-origin: 0 50%; z-index: 20; pointer-events: none; }
-.hero .tagline .w { display: inline-block; overflow: hidden; padding-bottom: .06em; margin-bottom: -.06em; vertical-align: top; }
-
-.gallery figure { overflow: hidden; }
-.card { will-change: transform; transform-style: preserve-3d; }
-.card img { transition: none; }
-footer { border-top: 1px solid var(--linie); padding: 26px 0 50px; color: var(--muted); font-size: 14px; }
-footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; justify-content: space-between; }
-
-/* ===== Fahnen-Video hinter der ganzen Seite (dunkles Design) ===== */
-:root { --text: #f4f4f4; --muted: rgba(255,255,255,.72); --linie: rgba(255,255,255,.16); --grund: rgba(18,18,18,.55); --flaeche: rgba(255,255,255,.08); --rot: #ff3b45; color-scheme: dark; }
-body { background: #111; }
-.seiten-bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #111 url(videos/fahne.jpg) center / cover; }
-.seiten-bg video { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.04); }
-.seiten-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.62), rgba(10,10,10,.8)); }
-body { background: transparent; }
-.top { background: rgba(14,14,14,.55); }
-.tile, .card { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
-.tile.kontakt { background: #e3000f; border-color: #e3000f; }
-.btn.primary { background: #e3000f; border-color: #e3000f; }
-.hero .tagline em { color: #ff5a62; }
 /* Videos */
 .reels { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; scrollbar-width: thin; }
 .reels figure { margin: 0; flex: 0 0 min(240px, 70vw); scroll-snap-align: start; }
-.reels video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 12px; background: #000; display: block; }
+.reels video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 14px; background: #000; }
 .reels figcaption { margin-top: 10px; font-size: 15px; color: var(--muted); }
-.reels figcaption b { display: block; color: var(--text); }
+.reels figcaption b { display: block; color: #fff; font-size: 16px; }
 
-/* ===== ENTWURF: Was mich antreibt / Wofür ich stehe ===== */
-.saetze { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 10px; }
-.saetze li { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; display: flex; gap: 14px; }
-.saetze li::before { content: "→"; color: var(--rot); flex: none; }
-.antrieb .persoenlich { max-width: 44em; font-size: 19px; border-left: 3px solid var(--rot); padding-left: 18px; margin: 0; }
-.warum { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
-.warum-text p { margin: 0 0 14px; font-size: 18px; max-width: 40em; }
-.warum-text .persoenlich { font-size: 19px; margin-bottom: 22px; }
-.warum blockquote { margin: 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: #fff; border-left: 4px solid var(--rot); padding-left: 22px; }
-/* ===== Über mich (neu) + Kontakt-Abschluss ===== */
-.ueber-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; margin-top: 8px; }
-.ueber-foto { margin: 0; position: sticky; top: 96px; }
-.ueber-foto .zoom { display: block; overflow: hidden; border-radius: 14px; aspect-ratio: 2 / 3; }
-.ueber-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); transform-origin: 50% 30%; display: block; }
-.ueber-foto figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
-.ueber-text h3 { margin: 0 0 12px; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--rot); }
-.ueber-text h3:not(:first-child) { margin-top: 34px; }
-.ueber-text p { margin: 0 0 14px; font-size: 18px; max-width: 40em; }
-.ueber-text em { font-style: normal; font-weight: 600; color: var(--text); }
-.ueber-text .persoenlich { font-size: 19px; border-left: 3px solid var(--rot); padding-left: 18px; }
-.ueber-text blockquote { margin: 28px 0 0; font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: #fff; }
-.kontakt-ende { text-align: center; padding: 72px 0 80px; }
-.kontakt-ende h2 { margin: 0 0 12px; font-size: clamp(36px, 5vw, 60px); letter-spacing: -.03em; }
-.kontakt-ende p { margin: 0 auto 26px; color: var(--muted); font-size: 18px; max-width: 32em; }
-.kontakt-ende .btns { justify-content: center; }
-/* ===== SCHRIFT: NRW-Juso-CD (Poppins kursiv + Assistant), Akzent Rot + Sonnengelb ===== */
-@font-face { font-family: 'Poppins'; src: url(fonts/Poppins-ExtraBoldItalic.ttf) format('truetype'); font-weight: 800; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Poppins'; src: url(fonts/Poppins-BlackItalic.ttf) format('truetype'); font-weight: 900; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Assistant'; src: url(fonts/Assistant-var.ttf) format('truetype'); font-weight: 200 800; font-style: normal; font-display: swap; }
-:root { --gelb: #fbbb32; }
-body { font-family: 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 18px; }
-:is(.hero .tagline, .sec-head h2, .saetze li, .stehen h3, .ueber-text blockquote, .kontakt-ende h2, .top .me, .ueber-text h3, .stehen .nr) { font-family: 'Poppins', system-ui, sans-serif; font-weight: 800; font-style: italic; letter-spacing: -.01em; }
-.hero .tagline { font-weight: 900; line-height: 1.02; }
-.hero .tagline em { font-style: italic; }
-.btn { font-weight: 700; }
-.hero .tagline em, .saetze li::before, .stehen .nr, .ueber-text h3 { color: var(--gelb); }
-.ueber-text .persoenlich, .ueber-text blockquote { border-color: var(--gelb); }
+/* Ämter, Werdegang */
+.list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.list li { display: grid; grid-template-columns: 120px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linie); }
+.list .when { color: var(--gelb); font-size: 15px; font-weight: 700; padding-top: 2px; }
+.list b { font-weight: 700; display: block; }
+.list small { color: var(--muted); font-size: 15.5px; display: block; }
+.list a { text-decoration: none; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.two h3 { margin: 0 0 12px; font-size: 18px; letter-spacing: .06em; text-transform: uppercase; color: var(--gelb); }
+.two .list li { grid-template-columns: 100px 1fr; }
 
-@media (max-width: 900px) { .ueber-grid { grid-template-columns: 1fr; gap: 28px; } .ueber-foto { position: static; max-width: 420px; } }
+/* Medien-Karten */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { display: flex; flex-direction: column; text-decoration: none; border-radius: 16px; overflow: hidden; background: rgba(12,24,32,.74); border: 1px solid var(--linie); transition: transform .2s; }
+.card:hover { transform: translateY(-4px); color: inherit; }
+.card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.card .txt { padding: 14px 16px 18px; display: grid; gap: 4px; }
+.card .src { font-size: 13.5px; color: var(--gelb); font-weight: 700; }
+.card b { font-weight: 700; line-height: 1.35; }
+.card:hover b { color: #fff; }
+.credit { font-size: 13px; color: var(--muted); margin-top: 16px; }
 
-@media (max-width: 900px) { .warum { grid-template-columns: 1fr; gap: 24px; } }
-.stehen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.stehen article { border: 1px solid var(--linie); border-radius: 14px; padding: 22px; background: var(--grund); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; flex-direction: column; gap: 10px; }
-.stehen .nr { font-size: 13px; font-weight: 700; letter-spacing: .1em; color: var(--rot); }
-.stehen h3 { margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -.01em; }
-.stehen p { margin: 0; color: var(--muted); font-size: 16px; }
-.stehen .beleg { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; }
-.stehen .beleg a { text-decoration: none; color: var(--text); }
-.stehen .beleg a:hover { color: var(--rot); }
-mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2px dashed #ffd600; padding: 0 2px; }
-.entwurf-hinweis { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 50; background: #111; color: #eee; font: 600 14px system-ui, sans-serif; padding: 10px 16px; border-radius: 999px; box-shadow: 0 8px 30px rgba(0,0,0,.4); max-width: calc(100vw - 24px); text-align: center; }
-.entwurf-hinweis mark { background: rgba(255,214,0,.3); color: #fff; border-bottom: 2px dashed #ffd600; }
-@media (max-width: 900px) { .stehen { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .stehen { grid-template-columns: 1fr; } }
+/* Galerien */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.gallery figure { margin: 0; overflow: hidden; }
+.gallery .wide { grid-column: 1 / -1; }
+.gallery img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; }
+.gallery .wide img { aspect-ratio: 16 / 8; object-position: 60% 40%; }
+.gallery figcaption { font-size: 13px; color: var(--muted); margin-top: 6px; }
 
-@media (max-width: 900px) {
-  .top nav { display: none; }
-  .top .social { margin-left: auto; }
-  .hero { grid-template-columns: 1fr; min-height: 0; }
-  .hero-text { padding: 36px 24px 40px; }
-  .photo { order: -1; height: 62vh; min-height: 380px; }
-  .bento { grid-template-columns: 1fr 1fr; }
-  .cards { grid-template-columns: 1fr 1fr; }
-  .two { grid-template-columns: 1fr; gap: 32px; }
+/* Kontakt: rote Box mit gelben Wellen */
+.kontakt { padding: 70px 0 110px; }
+.kontakt .box { background: var(--rot); border-radius: 28px; padding: 70px; position: relative; overflow: hidden; }
+.kontakt h2 { margin: 0 0 14px; font-size: clamp(46px, 6.4vw, 100px); font-weight: 900; position: relative; z-index: 1; }
+.kontakt p { font-size: 21px; margin: 0 0 28px; max-width: 26em; position: relative; z-index: 1; }
+.kontakt .btns { position: relative; z-index: 1; }
+.kontakt .wellen { position: absolute; right: -40px; top: 50%; translate: 0 -50%; width: 420px; height: 420px; color: var(--gelb); --m: url(images/cd/wellen.svg); }
+
+footer { padding: 26px 0 60px; border-top: 1px solid var(--linie); color: var(--muted); font-size: 15px; background: rgba(8,16,22,.6); }
+footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+footer img { height: 44px; width: auto; }
+
+/* Einblenden beim Scrollen (js/motion.js) */
+.motion .rein { opacity: 0; transform: translateY(26px); }
+.rein { transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+
+@media (max-width: 980px) { .top nav { display: none; } }
+@media (max-width: 860px) {
+  .wrap { padding: 0 20px; }
+  .held { grid-template-columns: 1fr; min-height: 0; }
+  .rahmen { order: -1; max-height: none; max-width: 460px; justify-self: center; }
+  .rahmen .raster { width: 110px; height: 110px; left: -16px; bottom: -20px; }
+  .schild { right: 10px; top: 14px; }
+  .gross { font-size: clamp(40px, 9vw, 72px); }
+  .ueber-grid, .two { grid-template-columns: 1fr; gap: 28px; }
+  .ueber-foto { position: static; max-width: 420px; }
+  .grid { grid-template-columns: 1fr; }
+  .cards, .gallery { grid-template-columns: 1fr 1fr; }
+  .list li, .two .list li { grid-template-columns: 90px 1fr; }
+  .kontakt .box { padding: 40px 24px; }
+  .kontakt .wellen { opacity: .35; }
+  .zitat .linie { width: 320px; height: 320px; }
 }
-@media (max-width: 560px) {
-  .wrap { padding: 0 18px; }
-  .top .me { font-size: 16px; }
-  .social a { width: 32px; height: 32px; }
-  .hero-text { padding: 28px 18px 32px; }
-  .photo { height: 54vh; min-height: 320px; }
-  .bento { grid-template-columns: 1fr; }
-  .marquee { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .marquee .lbl { padding-left: 18px; }
-  .marquee .mask { width: 100%; }
-  .marquee .track span { font-size: 18px; }
-  .cards, .gallery { grid-template-columns: 1fr; }
-  .list li, .two .list li { grid-template-columns: 1fr; gap: 0; }
-}
+@media (max-width: 520px) { .saetze li { overflow-wrap: break-word; hyphens: auto; font-size: clamp(22px, 7vw, 30px); gap: 14px; } .saetze li i { width: 36px; height: 28px; } .me { font-size: 16px; } .social a { width: 30px; } .gross { font-size: clamp(34px, 10.5vw, 58px); } .zitat blockquote { font-size: clamp(30px, 9vw, 40px); } .cards, .gallery { grid-template-columns: 1fr; } .lauf-spur { font-size: 24px; } .saetze { padding-top: 80px; } }
+@media (prefers-reduced-motion: reduce) { .lauf-spur, .rahmen .kreis { animation: none; } .motion .rein { opacity: 1; transform: none; } }
+
 </style>
 </head>
 <body>
+
+<div class="seiten-bg" aria-hidden="true"><video id="fahne" src="videos/fahne.mp4" poster="videos/fahne.jpg" muted loop playsinline preload="auto"></video></div>
 
 <header class="top">
   <div class="wrap">
     <a class="me" href="./">Mehdi Vassigh Ansari</a>
     <nav aria-label="Seitennavigation">
-      <a href="#ueber-mich">Über mich</a><a href="#positionen">Haltung</a><a href="#aemter">Ämter</a><a href="#medien">Medien</a><a href="#videos">Videos</a><a href="#diversify">Diversify</a><a href="#werdegang">Werdegang</a><a href="#kontakt">Kontakt</a>
+      <a href="#haltung">Haltung</a><a href="#ueber-mich">Über mich</a><a href="#positionen">Themen</a><a href="#videos">Videos</a><a href="#aemter">Ämter</a><a href="#medien">Medien</a><a href="#werdegang">Werdegang</a><a href="#kontakt">Kontakt</a>
     </nav>
     <div class="social">
       <a href="mailto:mehdi.vassigh-ansari@jusos-aachen.de" aria-label="E-Mail" title="E-Mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
@@ -362,42 +336,28 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
   </div>
 </header>
 
-<div class="seiten-bg" aria-hidden="true"><video id="fahne" src="videos/fahne.mp4" poster="videos/fahne.jpg" muted loop playsinline preload="auto"></video></div>
-
-<section class="hero" id="start">
-  <div class="hero-text">
-    <span class="badge"><i></i>Offen für Gespräche &amp; Einladungen</span>
-    <h1>Mehdi Vassigh Ansari</h1>
-    <p class="tagline">Politik vor Ort.<br><em>Mit Blick auf die Welt.</em></p>
-    <p class="role"><b>Vorsitzender der Jusos Aachen</b> · Sachkundiger Bürger in Stadt und StädteRegion Aachen · Politikwissenschaft an der RWTH Aachen</p>
-    <div class="btns">
-      <a class="btn primary" href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">Kontakt aufnehmen</a>
-      <a class="btn" href="#ueber-mich">Mehr über mich</a>
-    </div>
+<main>
+<section class="held wrap" id="start">
+  <div class="held-text">
+    <h1 class="gross">Politik vor Ort.<em>Mit Blick auf die Welt.</em></h1>
+    <p class="rolle"><b>Vorsitzender der Jusos Aachen</b> · Sachkundiger Bürger in Stadt und StädteRegion Aachen · Politikwissenschaft an der RWTH Aachen</p>
+    <div class="btns"><a class="btn voll" href="#kontakt">Lass uns reden</a><a class="btn" href="#positionen">Wofür ich stehe</a></div>
   </div>
-  <figure class="photo"><img src="images/portrait-gross.jpg" alt="Porträt von Mehdi Vassigh Ansari" width="1333" height="2000" fetchpriority="high"></figure>
+  <div class="rahmen"><i class="form kreis" aria-hidden="true"></i><img src="images/portrait-gross.jpg" alt="Porträt von Mehdi Vassigh Ansari" width="1333" height="2000" fetchpriority="high"><i class="form raster" aria-hidden="true"></i><span class="schild">Aachen, born &amp; raised</span></div>
 </section>
 
-<div class="marquee" aria-label="Engagiert bei">
-  <span class="lbl">Engagiert bei</span>
-  <div class="mask"><div class="track">
-    <span>SPD</span><span>Jusos Aachen</span><span>SPD-AG Migration &amp; Vielfalt</span><span>Stadt Aachen</span><span>StädteRegion Aachen</span><span>RWTH Aachen</span><span>Stiftung Mercator</span><span>Deutschlandstiftung Integration</span>
-    <span aria-hidden="true">SPD</span><span aria-hidden="true">Jusos Aachen</span><span aria-hidden="true">SPD-AG Migration &amp; Vielfalt</span><span aria-hidden="true">Stadt Aachen</span><span aria-hidden="true">StädteRegion Aachen</span><span aria-hidden="true">RWTH Aachen</span><span aria-hidden="true">Stiftung Mercator</span><span aria-hidden="true">Deutschlandstiftung Integration</span>
-  </div></div>
-</div>
+<div class="lauf" aria-label="Meine Themen"><div class="lauf-spur"><span>Bezahlbares Wohnen</span><span>Bildung für alle</span><span>Verteilung statt Spaltung</span><span>Demokratie verteidigen</span><span>Vielfalt in die Mitte</span><span>Gegen Rassismus</span><span aria-hidden="true">Bezahlbares Wohnen</span><span aria-hidden="true">Bildung für alle</span><span aria-hidden="true">Verteilung statt Spaltung</span><span aria-hidden="true">Demokratie verteidigen</span><span aria-hidden="true">Vielfalt in die Mitte</span><span aria-hidden="true">Gegen Rassismus</span></div></div>
 
-<main class="wrap">
+<div class="wrap">
+  <section class="saetze" id="haltung"><ul>
+    <li><i class="form" aria-hidden="true"></i>Politik muss da ankommen, wo Menschen leben.</li>
+    <li><i class="form" aria-hidden="true"></i>Wir lassen uns nicht gegeneinander ausspielen.</li>
+    <li><i class="form" aria-hidden="true"></i>Demokratie ist nicht selbstverständlich.</li>
+    <li><i class="form" aria-hidden="true"></i>Laut sein, wenn andere wegschauen.</li>
+  </ul></section>
 
-
-
-  <section class="sec ueber" id="ueber-mich">
+<section class="sec ueber" id="ueber-mich">
     <div class="sec-head"><h2>Über mich</h2></div>
-    <ul class="saetze">
-      <li>Politik muss da ankommen, wo Menschen leben – im Viertel und am Monatsende.</li>
-      <li>Wir lassen uns nicht gegeneinander ausspielen.</li>
-      <li>Demokratie ist nicht selbstverständlich.</li>
-      <li>Laut sein, wenn andere wegschauen.</li>
-    </ul>
     <div class="ueber-grid">
       <figure class="ueber-foto"><span class="zoom"><img src="images/portrait-kangol.jpg" alt="Porträt von Mehdi Vassigh Ansari mit Schiebermütze" width="800" height="1200" loading="lazy"></span><figcaption>Foto: Pascal Skwara</figcaption></figure>
       <div class="ueber-text">
@@ -409,24 +369,30 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
         <p class="persoenlich">Mir wird oft gesagt, ich soll mich kleiner machen. Ich habe mich aber anders entschieden. In den Räumen, in denen über uns entschieden wird, fehlen oft genau die Menschen, um die es geht. Deshalb mache ich Politik: damit mehr von uns am Tisch sitzen – und nicht dankbar sein müssen, dass sie mitspielen dürfen.</p>
         <p>Ich wurde einmal gefragt, warum ich nicht einfach zuschauen kann. Meine Antwort: Ich kann nicht so tun, als wäre Demokratie selbstverständlich. Wir kennen die Geschichten von Menschen, die verfolgt werden, weil sie ihre Meinung sagen oder für Freiheit kämpfen. Menschen sterben für Rechte, die hier vielen normal erscheinen: wählen zu dürfen, die eigene Stimme zu erheben, sich gegen Ungerechtigkeit zu wehren.</p>
         <p>Ich kann offen reden, mich einbringen und meine Meinung sagen. Viele andere können das nicht. Genau deshalb kann ich nicht wegschauen, wenn Menschen überhört werden – denn oft sind es gerade die mit den größten Problemen, die am wenigsten gehört werden.</p>
-        <blockquote>„Ich habe nicht das Privileg zu schweigen, solange anderen ihre Stimme genommen wird.“</blockquote>
       </div>
     </div>
   </section>
 
   <section class="sec" id="positionen">
-    <div class="sec-head"><h2>Wofür ich stehe</h2></div>
-    <div class="stehen">
-      <article><span class="nr">01</span><h3>Demokratie verteidigen</h3><p>Wählen, widersprechen, sich wehren – für diese Rechte werden anderswo Menschen verfolgt. Ich stelle mich gegen Rechtsextremismus und gegen jede Politik, die Menschen ihre Stimme nimmt.</p><span class="beleg"><a href="#ueber-mich">Warum ich nicht zuschauen kann →</a></span></article>
-      <article><span class="nr">02</span><h3>Gegen Rassismus und Muslimfeindlichkeit</h3><p>Über 3.000 antimuslimische Vorfälle in einem Jahr sind kein Randphänomen. Ich stelle mich gegen Hass – auf der Straße, im Netz und dort, wo er in Parlamenten wieder salonfähig wird.</p><span class="beleg"><a href="#videos">Rede bei „Wir sind Aachen“ · CLAIM-Lagebild →</a></span></article>
-      <article><span class="nr">03</span><h3>Verteilung statt Spaltung</h3><p>Während über Bürgergeld gestritten wird, wächst das Vermögen der Reichsten weiter. Ich will über Verteilung, Bildung und soziale Sicherheit reden – statt Menschen gegeneinander auszuspielen.</p><span class="beleg"><a href="#videos">Erklärvideos für @brd_wasgeht →</a></span></article>
-      <article><span class="nr">04</span><h3>Bezahlbares Wohnen</h3><p>Wohnen ist kein Luxus, sondern Existenzminimum. Jede und jeder hat das Recht auf ein Dach über dem Kopf. Wir müssen dafür sorgen, dass Wohnen in Aachen wieder bezahlbar wird – für Studierende, Familien und Rentner:innen.</p><span class="beleg"><a href="#aemter">Kommunalpolitik in Stadt und StädteRegion →</a></span></article>
-      <article><span class="nr">05</span><h3>Vielfalt in die Mitte</h3><p>Queere Menschen, Migrant:innen, junge Leute – sie gehören in die Mitte der Politik, nicht an den Rand. Niemand soll sich verstecken oder kleiner machen müssen, um dazuzugehören.</p><span class="beleg"><a href="#videos">CSD mit SPD Queer · AG Migration &amp; Vielfalt →</a></span></article>
-      <article><span class="nr">06</span><h3>Bildung für alle</h3><p>Ob Studium oder Ausbildung: Bildung darf keine Frage des Geldbeutels oder der Herkunft sein. Wir brauchen bezahlbaren Wohnraum für Studierende und Azubis, ein BAföG und eine Ausbildungsvergütung, die zum Leben reichen. Im Studierendenparlament der RWTH setze ich mich mit der Juso-Hochschulgruppe dafür ein, dass die Hochschule alle mitnimmt.</p><span class="beleg"><a href="#aemter">74. Studierendenparlament →</a></span></article>
+    <div class="sec-head"><h2>Wofür ich stehe</h2><i class="form linie-klein" aria-hidden="true"></i></div>
+    <div class="grid">
+      <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-antifaschismus.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-antifaschismus.svg" alt="" width="60" height="60"></span><h3>Demokratie verteidigen</h3><p>Wählen, widersprechen, sich wehren – für diese Rechte werden anderswo Menschen verfolgt. Ich stelle mich gegen Rechtsextremismus und gegen jede Politik, die Menschen ihre Stimme nimmt.</p><span class="beleg"><a href="#ueber-mich">Warum ich nicht zuschauen kann →</a></span></article>
+      <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-gemeinschaft.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-gemeinschaft.svg" alt="" width="60" height="60"></span><h3>Gegen Rassismus und Muslimfeindlichkeit</h3><p>Über 3.000 antimuslimische Vorfälle in einem Jahr sind kein Randphänomen. Ich stelle mich gegen Hass – auf der Straße, im Netz und dort, wo er in Parlamenten wieder salonfähig wird.</p><span class="beleg"><a href="#videos">Rede bei „Wir sind Aachen“ · CLAIM-Lagebild →</a></span></article>
+      <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-soziales.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-soziales.svg" alt="" width="60" height="60"></span><h3>Verteilung statt Spaltung</h3><p>Während über Bürgergeld gestritten wird, wächst das Vermögen der Reichsten weiter. Ich will über Verteilung, Bildung und soziale Sicherheit reden – statt Menschen gegeneinander auszuspielen.</p><span class="beleg"><a href="#videos">Erklärvideos für @brd_wasgeht →</a></span></article>
+      <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-wohnen.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-wohnen.svg" alt="" width="60" height="60"></span><h3>Bezahlbares Wohnen</h3><p>Wohnen ist kein Luxus, sondern Existenzminimum. Jede und jeder hat das Recht auf ein Dach über dem Kopf. Wir müssen dafür sorgen, dass Wohnen in Aachen wieder bezahlbar wird – für Studierende, Familien und Rentner:innen.</p><span class="beleg"><a href="#aemter">Kommunalpolitik in Stadt und StädteRegion →</a></span></article>
+      <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-diversitaet.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-diversitaet.svg" alt="" width="60" height="60"></span><h3>Vielfalt in die Mitte</h3><p>Queere Menschen, Migrant:innen, junge Leute – sie gehören in die Mitte der Politik, nicht an den Rand. Niemand soll sich verstecken oder kleiner machen müssen, um dazuzugehören.</p><span class="beleg"><a href="#videos">CSD mit SPD Queer · AG Migration &amp; Vielfalt →</a></span></article>
+      <article class="karte"><span class="ic"><img class="ic-rot" src="images/cd/iconrot-bildung.svg" alt="" width="60" height="60"><img class="ic-weiss" src="images/cd/icon-bildung.svg" alt="" width="60" height="60"></span><h3>Bildung für alle</h3><p>Ob Studium oder Ausbildung: Bildung darf keine Frage des Geldbeutels oder der Herkunft sein. Wir brauchen bezahlbaren Wohnraum für Studierende und Azubis, ein BAföG und eine Ausbildungsvergütung, die zum Leben reichen. Im Studierendenparlament der RWTH setze ich mich mit der Juso-Hochschulgruppe dafür ein, dass die Hochschule alle mitnimmt.</p><span class="beleg"><a href="#aemter">74. Studierendenparlament →</a></span></article>
     </div>
   </section>
+</div>
 
-  <section class="sec" id="videos">
+<section class="zitat">
+  <div class="wrap"><blockquote>„Ich habe nicht das Privileg zu schweigen, <em>solange anderen ihre Stimme genommen wird.</em>“</blockquote><p class="wer">Mehdi Vassigh Ansari</p></div>
+  <i class="form linie" aria-hidden="true"></i>
+</section>
+
+<div class="wrap">
+<section class="sec" id="videos">
     <div class="sec-head"><h2>Videos</h2><span class="more">zum Abspielen antippen · seitlich wischen →</span></div>
     <div class="reels">
       <figure><video src="videos/rede-okt-2025.mp4" poster="videos/rede-okt-2025.jpg" controls playsinline preload="none"></video><figcaption><b>Rede am Elisenbrunnen</b>„Wir sind Aachen“ · Okt. 2025</figcaption></figure>
@@ -440,9 +406,7 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
     </div>
   </section>
 
-
-  <!-- Ämter -->
-  <section class="sec" id="aemter">
+<section class="sec" id="aemter">
     <div class="sec-head"><h2>Politische Ämter</h2><span class="more"><a href="https://www.aachen.de/ratsinfo-views/mandatstraeger/EDB-HWifH7Wl9xME/vassigh-ansari/">Ratsinfo Stadt Aachen</a> · <a href="https://gremieninfo.staedteregion-aachen.de/public/kp020?KPLFDNR=1000240">Gremieninfo StädteRegion</a> →</span></div>
     <ul class="list">
       <li><span class="when">seit 09/2025</span><span><b>Vorsitzender der Jusos Aachen</b><small>Leitung des Unterbezirks, Kampagnen, Bildungs- und Öffentlichkeitsarbeit</small></span></li>
@@ -455,8 +419,7 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
     </ul>
   </section>
 
-  <!-- Medien -->
-  <section class="sec" id="medien">
+<section class="sec" id="medien">
     <div class="sec-head"><h2>In den Medien</h2></div>
     <div class="cards">
       <a class="card" href="https://www.aachener-zeitung.de/lokales/wir-sind-aachen-–-demo-gegen-rassismus-und-fuer-vielfalt/100297463.html">
@@ -478,8 +441,7 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
     <p class="credit">Fotos: Christian van’t Hoen (Demo), Pascal Skwara (Delegiertenbild) · Grafik: SPD-AG Migration &amp; Vielfalt · Fellow-Foto: Stiftung Mercator</p>
   </section>
 
-
-  <section class="sec" id="fotos">
+<section class="sec" id="fotos">
     <div class="sec-head"><h2>„Wir sind Aachen“ – Rede am Elisenbrunnen</h2><a class="more" href="https://www.aachener-zeitung.de/lokales/wir-sind-aachen-–-demo-gegen-rassismus-und-fuer-vielfalt/100297463.html">Bericht lesen →</a></div>
     <div class="gallery">
       <figure><img src="images/demo-menge.jpg" alt="Rede vor vielen Menschen am Elisenbrunnen" loading="lazy"><figcaption>Foto: Christian van’t Hoen</figcaption></figure>
@@ -488,8 +450,7 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
     </div>
   </section>
 
-  <!-- Diversify -->
-  <section class="sec" id="diversify">
+<section class="sec" id="diversify">
     <div class="sec-head"><h2>Diversify – Festival der Deutschlandstiftung Integration</h2></div>
     <div class="gallery">
       <figure class="wide"><img src="images/diversify-highfive.jpg" alt="High-Five mit anderen Teilnehmenden beim Planspiel auf dem Diversify-Festival" loading="lazy"><figcaption>Gemeinsam geschafft – Planspiel beim Diversify-Festival</figcaption></figure>
@@ -499,8 +460,7 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
     </div>
   </section>
 
-  <!-- Werdegang -->
-  <section class="sec" id="werdegang">
+<section class="sec" id="werdegang">
     <div class="sec-head"><h2>Werdegang</h2></div>
     <div class="two">
       <div>
@@ -524,28 +484,23 @@ mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2
     </div>
   </section>
 
-
-  <section class="sec kontakt-ende" id="kontakt">
+  <section class="kontakt" id="kontakt"><div class="box">
     <h2>Lass uns reden.</h2>
     <p>Für Veranstaltungen, Gespräche, Presseanfragen – oder einfach, wenn dir in Aachen etwas fehlt.</p>
-    <div class="btns">
-      <a class="btn primary" href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">E-Mail schreiben</a>
-      <a class="btn" href="https://www.instagram.com/mehdi.vas/">Instagram</a>
-      <a class="btn" href="https://www.linkedin.com/in/mehdi-vassigh-ansari-bb3760222">LinkedIn</a>
-    </div>
-  </section>
-
+    <div class="btns"><a class="btn hell" href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">E-Mail schreiben</a><a class="btn" href="https://www.instagram.com/mehdi.vas/">Instagram</a><a class="btn" href="https://www.linkedin.com/in/mehdi-vassigh-ansari-bb3760222">LinkedIn</a></div>
+    <i class="form wellen" aria-hidden="true"></i>
+  </div></section>
+</div>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Mehdi Vassigh Ansari</span>
-    <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    <span>© 2026 Mehdi Vassigh Ansari · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
+    <span>Mehdi Vassigh Ansari · Aachen</span>
   </div>
 </footer>
 <script src="js/gsap.min.js"></script>
 <script src="js/ScrollTrigger.min.js"></script>
-<script src="js/SplitText.min.js"></script>
 <script src="js/lenis.min.js"></script>
 <script src="js/motion.js"></script>
 <script src="js/video.js"></script>
