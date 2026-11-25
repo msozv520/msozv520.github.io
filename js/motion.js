@@ -16,7 +16,7 @@
       a.addEventListener('click', function (e) {
         var id = a.getAttribute('href'); if (id.length < 2) return;
         var el = document.querySelector(id); if (!el) return;
-        e.preventDefault(); lenis.scrollTo(el, { offset: -76, duration: 1.2 }); history.replaceState(null, '', id);
+        e.preventDefault(); var k = document.querySelector('.top'); lenis.scrollTo(el, { offset: -((k ? k.offsetHeight : 68) + 10), duration: 1.2 }); history.replaceState(null, '', id);
       });
     });
   }

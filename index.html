@@ -134,7 +134,7 @@
 :root { --rot: #e3000f; --gelb: #fbbb32; --navi: #1d3342; --sand: #e1dcd2; --text: #f3f1ec; --muted: rgba(243,241,236,.74); --linie: rgba(255,255,255,.14); color-scheme: dark; }
 * { box-sizing: border-box; }
 html { -webkit-font-smoothing: antialiased; overflow-x: clip; }
-body { margin: 0; background: #0c1820; color: var(--text); font: 18px/1.6 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; overflow-x: hidden; }
+body { margin: 0; background: #0c1820; color: var(--text); font: 18px/1.6 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
 a { color: inherit; text-decoration-color: var(--rot); text-underline-offset: 3px; }
 a:hover { color: var(--gelb); }
 img, video { display: block; max-width: 100%; }
@@ -208,7 +208,7 @@ h1, h2, h3, .p, blockquote, .saetze li, .schild, .lauf, .me, .dach { font-family
 
 /* Über mich */
 .ueber-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; }
-.ueber-foto { margin: 0; position: sticky; top: 96px; }
+.ueber-foto { margin: 0; position: sticky; top: 110px; }
 .ueber-foto .zoom { display: block; overflow: hidden; border-radius: 18px; aspect-ratio: 2 / 3; }
 .ueber-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); transform-origin: 50% 30%; }
 .ueber-foto figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
@@ -296,7 +296,12 @@ footer img { height: 44px; width: auto; }
 .motion .rein { opacity: 0; transform: translateY(26px); }
 .rein { transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
 
-@media (max-width: 980px) { .top nav { display: none; } }
+@media (max-width: 980px) {
+  .top .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; gap: 6px 16px; }
+  .social { margin-left: auto; }
+  .top nav { order: 3; width: 100%; margin: 0; overflow-x: auto; scrollbar-width: none; gap: 18px; padding: 4px 0 10px; font-size: 15px; white-space: nowrap; -webkit-mask: linear-gradient(90deg, #000 88%, transparent); mask: linear-gradient(90deg, #000 88%, transparent); }
+  .top nav::-webkit-scrollbar { display: none; }
+}
 @media (max-width: 860px) {
   .wrap { padding: 0 20px; }
   .held { grid-template-columns: 1fr; min-height: 0; }
