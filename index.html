@@ -265,6 +265,61 @@ body { background: transparent; }
 .reels figcaption { margin-top: 10px; font-size: 15px; color: var(--muted); }
 .reels figcaption b { display: block; color: var(--text); }
 
+/* ===== ENTWURF: Was mich antreibt / Wofür ich stehe ===== */
+.saetze { list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 10px; }
+.saetze li { font-size: clamp(22px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.02em; line-height: 1.2; display: flex; gap: 14px; }
+.saetze li::before { content: "→"; color: var(--rot); flex: none; }
+.antrieb .persoenlich { max-width: 44em; font-size: 19px; border-left: 3px solid var(--rot); padding-left: 18px; margin: 0; }
+.warum { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.warum-text p { margin: 0 0 14px; font-size: 18px; max-width: 40em; }
+.warum-text .persoenlich { font-size: 19px; margin-bottom: 22px; }
+.warum blockquote { margin: 0; font-size: clamp(24px, 2.6vw, 34px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: #fff; border-left: 4px solid var(--rot); padding-left: 22px; }
+/* ===== Über mich (neu) + Kontakt-Abschluss ===== */
+.ueber-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: start; margin-top: 8px; }
+.ueber-foto { margin: 0; position: sticky; top: 96px; }
+.ueber-foto .zoom { display: block; overflow: hidden; border-radius: 14px; aspect-ratio: 2 / 3; }
+.ueber-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; transform: scale(1.12); transform-origin: 50% 30%; display: block; }
+.ueber-foto figcaption { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.ueber-text h3 { margin: 0 0 12px; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--rot); }
+.ueber-text h3:not(:first-child) { margin-top: 34px; }
+.ueber-text p { margin: 0 0 14px; font-size: 18px; max-width: 40em; }
+.ueber-text em { font-style: normal; font-weight: 600; color: var(--text); }
+.ueber-text .persoenlich { font-size: 19px; border-left: 3px solid var(--rot); padding-left: 18px; }
+.ueber-text blockquote { margin: 28px 0 0; font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: #fff; }
+.kontakt-ende { text-align: center; padding: 72px 0 80px; }
+.kontakt-ende h2 { margin: 0 0 12px; font-size: clamp(36px, 5vw, 60px); letter-spacing: -.03em; }
+.kontakt-ende p { margin: 0 auto 26px; color: var(--muted); font-size: 18px; max-width: 32em; }
+.kontakt-ende .btns { justify-content: center; }
+/* ===== SCHRIFT: NRW-Juso-CD (Poppins kursiv + Assistant), Akzent Rot + Sonnengelb ===== */
+@font-face { font-family: 'Poppins'; src: url(fonts/Poppins-ExtraBoldItalic.ttf) format('truetype'); font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Poppins'; src: url(fonts/Poppins-BlackItalic.ttf) format('truetype'); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Assistant'; src: url(fonts/Assistant-var.ttf) format('truetype'); font-weight: 200 800; font-style: normal; font-display: swap; }
+:root { --gelb: #fbbb32; }
+body { font-family: 'Assistant', system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-size: 18px; }
+:is(.hero .tagline, .sec-head h2, .saetze li, .stehen h3, .ueber-text blockquote, .kontakt-ende h2, .top .me, .ueber-text h3, .stehen .nr) { font-family: 'Poppins', system-ui, sans-serif; font-weight: 800; font-style: italic; letter-spacing: -.01em; }
+.hero .tagline { font-weight: 900; line-height: 1.02; }
+.hero .tagline em { font-style: italic; }
+.btn { font-weight: 700; }
+.hero .tagline em, .saetze li::before, .stehen .nr, .ueber-text h3 { color: var(--gelb); }
+.ueber-text .persoenlich, .ueber-text blockquote { border-color: var(--gelb); }
+
+@media (max-width: 900px) { .ueber-grid { grid-template-columns: 1fr; gap: 28px; } .ueber-foto { position: static; max-width: 420px; } }
+
+@media (max-width: 900px) { .warum { grid-template-columns: 1fr; gap: 24px; } }
+.stehen { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.stehen article { border: 1px solid var(--linie); border-radius: 14px; padding: 22px; background: var(--grund); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; flex-direction: column; gap: 10px; }
+.stehen .nr { font-size: 13px; font-weight: 700; letter-spacing: .1em; color: var(--rot); }
+.stehen h3 { margin: 0; font-size: 21px; line-height: 1.2; letter-spacing: -.01em; }
+.stehen p { margin: 0; color: var(--muted); font-size: 16px; }
+.stehen .beleg { margin-top: auto; padding-top: 8px; font-size: 14px; font-weight: 600; }
+.stehen .beleg a { text-decoration: none; color: var(--text); }
+.stehen .beleg a:hover { color: var(--rot); }
+mark.pruefen { background: rgba(255,214,0,.22); color: inherit; border-bottom: 2px dashed #ffd600; padding: 0 2px; }
+.entwurf-hinweis { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 50; background: #111; color: #eee; font: 600 14px system-ui, sans-serif; padding: 10px 16px; border-radius: 999px; box-shadow: 0 8px 30px rgba(0,0,0,.4); max-width: calc(100vw - 24px); text-align: center; }
+.entwurf-hinweis mark { background: rgba(255,214,0,.3); color: #fff; border-bottom: 2px dashed #ffd600; }
+@media (max-width: 900px) { .stehen { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .stehen { grid-template-columns: 1fr; } }
+
 @media (max-width: 900px) {
   .top nav { display: none; }
   .top .social { margin-left: auto; }
@@ -297,7 +352,7 @@ body { background: transparent; }
   <div class="wrap">
     <a class="me" href="./">Mehdi Vassigh Ansari</a>
     <nav aria-label="Seitennavigation">
-      <a href="#aemter">Ämter</a><a href="#medien">Medien</a><a href="#videos">Videos</a><a href="#diversify">Diversify</a><a href="#werdegang">Werdegang</a><a href="#kontakt">Kontakt</a>
+      <a href="#ueber-mich">Über mich</a><a href="#positionen">Haltung</a><a href="#aemter">Ämter</a><a href="#medien">Medien</a><a href="#videos">Videos</a><a href="#diversify">Diversify</a><a href="#werdegang">Werdegang</a><a href="#kontakt">Kontakt</a>
     </nav>
     <div class="social">
       <a href="mailto:mehdi.vassigh-ansari@jusos-aachen.de" aria-label="E-Mail" title="E-Mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
@@ -333,21 +388,58 @@ body { background: transparent; }
 
 <main class="wrap">
 
-  <!-- Kacheln -->
-  <section class="bento" aria-label="Auf einen Blick">
-    <div class="tile"><span class="k">Aktuell</span><b>Vorsitzender der Jusos Aachen</b><small>und kooptiert im Bundesvorstand der SPD-AG Migration &amp; Vielfalt</small></div>
-    <div class="tile"><span class="k">Mandate</span><b>Sachkundiger Bürger</b><small>Rat der Stadt Aachen und StädteRegion Aachen</small></div>
-    <div class="tile"><span class="k">Studium</span><b>Politikwissenschaft, RWTH Aachen</b><small>Internationale Beziehungen, Sicherheitspolitik</small></div>
-    <div class="tile kontakt" id="kontakt"><span class="k">Kontakt</span><b>Für Veranstaltungen, Gespräche und Zusammenarbeit</b><a href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">E-Mail schreiben →</a></div>
+
+
+  <section class="sec ueber" id="ueber-mich">
+    <div class="sec-head"><h2>Über mich</h2></div>
+    <ul class="saetze">
+      <li>Politik muss da ankommen, wo Menschen leben – im Viertel und am Monatsende.</li>
+      <li>Wir lassen uns nicht gegeneinander ausspielen.</li>
+      <li>Demokratie ist nicht selbstverständlich.</li>
+      <li>Laut sein, wenn andere wegschauen.</li>
+    </ul>
+    <div class="ueber-grid">
+      <figure class="ueber-foto"><span class="zoom"><img src="images/portrait-kangol.jpg" alt="Porträt von Mehdi Vassigh Ansari mit Schiebermütze" width="800" height="1200" loading="lazy"></span><figcaption>Foto: Pascal Skwara</figcaption></figure>
+      <div class="ueber-text">
+        <h3>Aachen ist meine Heimat</h3>
+        <p>Ich bin in Aachen geboren und aufgewachsen. Das ist meine Stadt – deshalb setze ich mich mit ganzer Kraft für sie ein.</p>
+        <p>Ich kenne die Menschen und ihre Probleme. Ob an der Haustür, im Park, im Supermarkt, in der Apotheke oder an der Bushaltestelle: Wir kommen ins Gespräch, und schnell wird klar, wo es hakt. <em>Mal ist es der Bus, der zu spät kommt, mal fehlen Parkplätze, mal Kitaplätze.</em> Und oft fehlt genau den Menschen, die am meisten betroffen sind, eine Stimme in der Politik. Das will ich ändern.</p>
+        <p>Ich studiere Politikwissenschaft an der RWTH Aachen, mit Schwerpunkt Internationale Beziehungen. Denn was in der Welt passiert, kommt auch in Aachen an. Als Grenzstadt im Dreiländereck spüren wir das jeden Tag.</p>
+        <h3>Warum ich Politik mache</h3>
+        <p class="persoenlich">Mir wird oft gesagt, ich soll mich kleiner machen. Ich habe mich aber anders entschieden. In den Räumen, in denen über uns entschieden wird, fehlen oft genau die Menschen, um die es geht. Deshalb mache ich Politik: damit mehr von uns am Tisch sitzen – und nicht dankbar sein müssen, dass sie mitspielen dürfen.</p>
+        <p>Ich wurde einmal gefragt, warum ich nicht einfach zuschauen kann. Meine Antwort: Ich kann nicht so tun, als wäre Demokratie selbstverständlich. Wir kennen die Geschichten von Menschen, die verfolgt werden, weil sie ihre Meinung sagen oder für Freiheit kämpfen. Menschen sterben für Rechte, die hier vielen normal erscheinen: wählen zu dürfen, die eigene Stimme zu erheben, sich gegen Ungerechtigkeit zu wehren.</p>
+        <p>Ich kann offen reden, mich einbringen und meine Meinung sagen. Viele andere können das nicht. Genau deshalb kann ich nicht wegschauen, wenn Menschen überhört werden – denn oft sind es gerade die mit den größten Problemen, die am wenigsten gehört werden.</p>
+        <blockquote>„Ich habe nicht das Privileg zu schweigen, solange anderen ihre Stimme genommen wird.“</blockquote>
+      </div>
+    </div>
   </section>
 
-  <!-- Über mich -->
-  <section class="sec about" id="ueber-mich">
-    <div class="sec-head"><h2>Über mich</h2></div>
-    <p>Ich studiere Gesellschaftswissenschaften mit Schwerpunkt <strong>Politikwissenschaft an der RWTH Aachen</strong>. Mich interessieren vor allem die Internationalen Beziehungen – insbesondere Sicherheitspolitik und Diplomatie.</p>
-    <p>Parallel mache ich Politik vor Ort: als <strong>Vorsitzender der Jusos Aachen</strong>, als Sachkundiger Bürger für die SPD in Stadt und StädteRegion Aachen, im <strong>Bundesvorstand der SPD-AG Migration &amp; Vielfalt</strong> und in der Öffentlichkeitsarbeit der SPD-Fraktion im Städteregionstag.</p>
-    <p>Mein Ziel ist, wissenschaftliche Analyse und politische Praxis zu verbinden – perspektivisch in der Außen- und Sicherheitspolitik.</p>
+  <section class="sec" id="positionen">
+    <div class="sec-head"><h2>Wofür ich stehe</h2></div>
+    <div class="stehen">
+      <article><span class="nr">01</span><h3>Demokratie verteidigen</h3><p>Wählen, widersprechen, sich wehren – für diese Rechte werden anderswo Menschen verfolgt. Ich stelle mich gegen Rechtsextremismus und gegen jede Politik, die Menschen ihre Stimme nimmt.</p><span class="beleg"><a href="#ueber-mich">Warum ich nicht zuschauen kann →</a></span></article>
+      <article><span class="nr">02</span><h3>Gegen Rassismus und Muslimfeindlichkeit</h3><p>Über 3.000 antimuslimische Vorfälle in einem Jahr sind kein Randphänomen. Ich stelle mich gegen Hass – auf der Straße, im Netz und dort, wo er in Parlamenten wieder salonfähig wird.</p><span class="beleg"><a href="#videos">Rede bei „Wir sind Aachen“ · CLAIM-Lagebild →</a></span></article>
+      <article><span class="nr">03</span><h3>Verteilung statt Spaltung</h3><p>Während über Bürgergeld gestritten wird, wächst das Vermögen der Reichsten weiter. Ich will über Verteilung, Bildung und soziale Sicherheit reden – statt Menschen gegeneinander auszuspielen.</p><span class="beleg"><a href="#videos">Erklärvideos für @brd_wasgeht →</a></span></article>
+      <article><span class="nr">04</span><h3>Bezahlbares Wohnen</h3><p>Wohnen ist kein Luxus, sondern Existenzminimum. Jede und jeder hat das Recht auf ein Dach über dem Kopf. Wir müssen dafür sorgen, dass Wohnen in Aachen wieder bezahlbar wird – für Studierende, Familien und Rentner:innen.</p><span class="beleg"><a href="#aemter">Kommunalpolitik in Stadt und StädteRegion →</a></span></article>
+      <article><span class="nr">05</span><h3>Vielfalt in die Mitte</h3><p>Queere Menschen, Migrant:innen, junge Leute – sie gehören in die Mitte der Politik, nicht an den Rand. Niemand soll sich verstecken oder kleiner machen müssen, um dazuzugehören.</p><span class="beleg"><a href="#videos">CSD mit SPD Queer · AG Migration &amp; Vielfalt →</a></span></article>
+      <article><span class="nr">06</span><h3>Bildung für alle</h3><p>Ob Studium oder Ausbildung: Bildung darf keine Frage des Geldbeutels oder der Herkunft sein. Wir brauchen bezahlbaren Wohnraum für Studierende und Azubis, ein BAföG und eine Ausbildungsvergütung, die zum Leben reichen. Im Studierendenparlament der RWTH setze ich mich mit der Juso-Hochschulgruppe dafür ein, dass die Hochschule alle mitnimmt.</p><span class="beleg"><a href="#aemter">74. Studierendenparlament →</a></span></article>
+    </div>
   </section>
+
+  <section class="sec" id="videos">
+    <div class="sec-head"><h2>Videos</h2><span class="more">zum Abspielen antippen · seitlich wischen →</span></div>
+    <div class="reels">
+      <figure><video src="videos/rede-okt-2025.mp4" poster="videos/rede-okt-2025.jpg" controls playsinline preload="none"></video><figcaption><b>Rede am Elisenbrunnen</b>„Wir sind Aachen“ · Okt. 2025</figcaption></figure>
+      <figure><video src="videos/csd.mp4" poster="videos/csd.jpg" controls playsinline preload="none"></video><figcaption><b>Zuckerwatte auf dem CSD</b>zusammen mit SPD Queer</figcaption></figure>
+      <figure><video src="videos/parteitag.mp4" poster="videos/parteitag.jpg" controls playsinline preload="none"></video><figcaption><b>Rede beim Unterbezirksparteitag</b>SPD Aachen-Stadt · Juli 2026</figcaption></figure>
+      <figure><video src="videos/nrw-jusos-rede.mp4" poster="videos/nrw-jusos-rede.jpg" controls playsinline preload="none"></video><figcaption><b>Rede auf der NRW-Juso-Landeskonferenz</b>Gelsenkirchen · mein Antrag „Keine Ausnahmen beim Völkerrecht“ wurde angenommen · 2025</figcaption></figure>
+      <figure><video src="videos/brd-sondervermoegen.mp4" poster="videos/brd-sondervermoegen.jpg" controls playsinline preload="none"></video><figcaption><b>Was ist eigentlich das Sondervermögen?</b>für @brd_wasgeht · März 2026</figcaption></figure>
+      <figure><video src="videos/brd-buergergeld.mp4" poster="videos/brd-buergergeld.jpg" controls playsinline preload="none"></video><figcaption><b>Verteilung statt Spaltung</b>Bürgergeld, Rechtsruck und Vermögen · für @brd_wasgeht · März 2026</figcaption></figure>
+      <figure><video src="videos/claim-2024.mp4" poster="videos/claim-2024.jpg" controls playsinline preload="none"></video><figcaption><b>3.080 antimuslimische Vorfälle 2024</b>zum Lagebild der CLAIM-Allianz · Juni 2025</figcaption></figure>
+      <figure><video src="videos/gespraech-schulz.mp4" poster="videos/gespraech-schulz.jpg" controls playsinline preload="none"></video><figcaption><b>Im Gespräch mit Martin Schulz</b>„Gegen das Entweder-Oder – für Zusammenhalt und Gerechtigkeit“ · Juni 2025</figcaption></figure>
+    </div>
+  </section>
+
 
   <!-- Ämter -->
   <section class="sec" id="aemter">
@@ -382,27 +474,10 @@ body { background: transparent; }
       <a class="card" href="https://www.jusos-aachen.de/team/mehdi-vassigh-ansari/">
         <img src="images/jusos-vorstand.jpg" alt="Mehdi Vassigh Ansari lachend bei einem Gruppenselfie" loading="lazy" style="object-position:50% 45%">
         <span class="txt"><span class="src">Jusos Aachen</span><b>Vorstellung im Vorstand</b></span></a>
-      <a class="card" href="https://www.aachen.de/ratsinfo-views/mandatstraeger/EDB-HWifH7Wl9xME/vassigh-ansari/">
-        <span class="ph">Stadt Aachen</span>
-        <span class="txt"><span class="src">Ratsinformationssystem</span><b>Mandate und Ausschüsse (Stadt)</b></span></a>
     </div>
     <p class="credit">Fotos: Christian van’t Hoen (Demo), Pascal Skwara (Delegiertenbild) · Grafik: SPD-AG Migration &amp; Vielfalt · Fellow-Foto: Stiftung Mercator</p>
   </section>
 
-  <!-- Fotos -->
-  <section class="sec" id="videos">
-    <div class="sec-head"><h2>Videos</h2><span class="more">zum Abspielen antippen · seitlich wischen →</span></div>
-    <div class="reels">
-      <figure><video src="videos/rede-okt-2025.mp4" poster="videos/rede-okt-2025.jpg" controls playsinline preload="none"></video><figcaption><b>Rede am Elisenbrunnen</b>„Wir sind Aachen“ · Okt. 2025</figcaption></figure>
-      <figure><video src="videos/csd.mp4" poster="videos/csd.jpg" controls playsinline preload="none"></video><figcaption><b>Zuckerwatte auf dem CSD</b>zusammen mit SPD Queer</figcaption></figure>
-      <figure><video src="videos/parteitag.mp4" poster="videos/parteitag.jpg" controls playsinline preload="none"></video><figcaption><b>Rede beim Unterbezirksparteitag</b>SPD Aachen-Stadt · Juli 2026</figcaption></figure>
-      <figure><video src="videos/nrw-jusos-rede.mp4" poster="videos/nrw-jusos-rede.jpg" controls playsinline preload="none"></video><figcaption><b>Rede auf der NRW-Juso-Landeskonferenz</b>Gelsenkirchen · mein Antrag „Keine Ausnahmen beim Völkerrecht“ wurde angenommen · 2025</figcaption></figure>
-      <figure><video src="videos/brd-sondervermoegen.mp4" poster="videos/brd-sondervermoegen.jpg" controls playsinline preload="none"></video><figcaption><b>Was ist eigentlich das Sondervermögen?</b>für @brd_wasgeht · März 2026</figcaption></figure>
-      <figure><video src="videos/brd-buergergeld.mp4" poster="videos/brd-buergergeld.jpg" controls playsinline preload="none"></video><figcaption><b>Verteilung statt Spaltung</b>Bürgergeld, Rechtsruck und Vermögen · für @brd_wasgeht · März 2026</figcaption></figure>
-      <figure><video src="videos/claim-2024.mp4" poster="videos/claim-2024.jpg" controls playsinline preload="none"></video><figcaption><b>3.080 antimuslimische Vorfälle 2024</b>zum Lagebild der CLAIM-Allianz · Juni 2025</figcaption></figure>
-      <figure><video src="videos/gespraech-schulz.mp4" poster="videos/gespraech-schulz.jpg" controls playsinline preload="none"></video><figcaption><b>Im Gespräch mit Martin Schulz</b>„Gegen das Entweder-Oder – für Zusammenhalt und Gerechtigkeit“ · Juni 2025</figcaption></figure>
-    </div>
-  </section>
 
   <section class="sec" id="fotos">
     <div class="sec-head"><h2>„Wir sind Aachen“ – Rede am Elisenbrunnen</h2><a class="more" href="https://www.aachener-zeitung.de/lokales/wir-sind-aachen-–-demo-gegen-rassismus-und-fuer-vielfalt/100297463.html">Bericht lesen →</a></div>
@@ -449,12 +524,14 @@ body { background: transparent; }
     </div>
   </section>
 
-  <!-- Schwerpunkte -->
-  <section class="sec" id="schwerpunkte">
-    <div class="sec-head"><h2>Schwerpunkte &amp; Sprachen</h2></div>
-    <div class="tags">
-      <span>Internationale Beziehungen</span><span>Sicherheitspolitik</span><span>Bezahlbares Wohnen</span><span>Integration &amp; Teilhabe</span><span>Kommunalpolitik</span>
-      <span>Deutsch</span><span>Englisch</span><span>Persisch</span><span>Französisch</span>
+
+  <section class="sec kontakt-ende" id="kontakt">
+    <h2>Lass uns reden.</h2>
+    <p>Für Veranstaltungen, Gespräche, Presseanfragen – oder einfach, wenn dir in Aachen etwas fehlt.</p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:mehdi.vassigh-ansari@jusos-aachen.de">E-Mail schreiben</a>
+      <a class="btn" href="https://www.instagram.com/mehdi.vas/">Instagram</a>
+      <a class="btn" href="https://www.linkedin.com/in/mehdi-vassigh-ansari-bb3760222">LinkedIn</a>
     </div>
   </section>
 
